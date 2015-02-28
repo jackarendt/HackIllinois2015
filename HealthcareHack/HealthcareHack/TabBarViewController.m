@@ -1,23 +1,23 @@
 //
-//  DoctorReferralViewController.m
+//  TabBarViewController.m
 //  HealthcareHack
 //
 //  Created by Jack Arendt on 2/28/15.
 //  Copyright (c) 2015 John Arendt. All rights reserved.
 //
 
-#import "DoctorReferralViewController.h"
+#import "TabBarViewController.h"
 #import "HHUtility.h"
 
-@interface DoctorReferralViewController () 
+@interface TabBarViewController ()
+
 @end
 
-@implementation DoctorReferralViewController
+@implementation TabBarViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self.navigationController setNavigationBarHidden:NO animated:NO];
-
+    self.tabBar.tintColor = [HHUtility getGreenColor];
     // Do any additional setup after loading the view.
 }
 

@@ -103,10 +103,10 @@
             </objects>
             <point key="canvasLocation" x="2252" y="682"/>
         </scene>
-        <!--Tab Bar Controller-->
+        <!--Tab Bar View Controller-->
         <scene sceneID="P1U-W3-O1W">
             <objects>
-                <tabBarController id="HZ5-Hc-bEi" sceneMemberID="viewController">
+                <tabBarController id="HZ5-Hc-bEi" customClass="TabBarViewController" sceneMemberID="viewController">
                     <nil key="simulatedBottomBarMetrics"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" id="oLS-Tg-kjN">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="49"/>
@@ -123,11 +123,11 @@
             </objects>
             <point key="canvasLocation" x="-130" y="352"/>
         </scene>
-        <!--Item 1-->
+        <!--The Problem-->
         <scene sceneID="r4A-Ze-2Oc">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="qzR-yB-Jf1" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item 1" id="wRb-0w-FUG"/>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="qzR-yB-Jf1" customClass="ProblemNavigationViewController" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="The Problem" image="Bandaid" id="wRb-0w-FUG"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="Rqg-dm-JUL">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -142,11 +142,11 @@
             </objects>
             <point key="canvasLocation" x="690" y="20"/>
         </scene>
-        <!--Item 2-->
+        <!--Find A Doctor-->
         <scene sceneID="7iK-8o-Y8m">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="2vp-kP-axd" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item 2" id="aUQ-dJ-dRy"/>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="2vp-kP-axd" customClass="DoctorNavigationViewController" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Find A Doctor" image="Medical" id="aUQ-dJ-dRy"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="bBC-3B-S30">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -161,11 +161,11 @@
             </objects>
             <point key="canvasLocation" x="691" y="682"/>
         </scene>
-        <!--Item-->
+        <!--Profile-->
         <scene sceneID="wId-hn-eL1">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="yoZ-DY-KNE" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="cvS-z3-dm0"/>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="yoZ-DY-KNE" customClass="ProfileNavigationViewController" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Profile" image="Patient" id="cvS-z3-dm0"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="JNu-vg-3U5">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -181,4 +181,9 @@
             <point key="canvasLocation" x="696" y="1418"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="Bandaid" width="25" height="25"/>
+        <image name="Medical" width="25" height="25"/>
+        <image name="Patient" width="25" height="25"/>
+    </resources>
 </document>

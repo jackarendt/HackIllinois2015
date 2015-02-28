@@ -35,5 +35,16 @@
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>
 	</array>
+	<key>UIAppFonts</key>
+	<array>
+		<string>Neou-Bold.ttf</string>
+		<string>Neou-Thin.ttf</string>
+		<string>BebasNeue Bold.otf</string>
+		<string>BebasNeue Book.otf</string>
+		<string>BebasNeue Light.otf</string>
+		<string>BebasNeue Regular.otf</string>
+		<string>BebasNeue Thin.otf</string>
+		<string>BEBAS___.ttf</string>
+	</array>
 </dict>
 </plist>

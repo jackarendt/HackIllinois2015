@@ -7,15 +7,32 @@
 //
 
 #import "DoctorSentenceViewController.h"
+#import "HHUtility.h"
 
-@interface DoctorSentenceViewController ()
-
+@interface DoctorSentenceViewController () {
+    CGFloat height;
+    CGFloat width;
+}
+@property (nonatomic, strong) UILabel *sentenceLabel;
 @end
 
 @implementation DoctorSentenceViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [self.navigationController setNavigationBarHidden:YES animated:NO];
+    self.view.backgroundColor = [HHUtility getGreenColor];
+    
+    self.view.backgroundColor = [HHUtility getGreenColor];
+    height = self.view.bounds.size.height;
+    width = self.view.bounds.size.width;
+    self.sentenceLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 40, width, 45)];
+    self.sentenceLabel.text = @"Find A Doctor";
+    self.sentenceLabel.textAlignment = NSTextAlignmentCenter;
+    self.sentenceLabel.textColor = [UIColor whiteColor];
+    self.sentenceLabel.font = [UIFont fontWithName:kFontName size:45];
+    
+    [self.view addSubview:self.sentenceLabel];
     // Do any additional setup after loading the view.
 }
 

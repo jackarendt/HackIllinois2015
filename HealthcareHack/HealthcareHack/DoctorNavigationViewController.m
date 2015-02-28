@@ -1,23 +1,25 @@
 //
-//  DoctorReferralViewController.m
+//  DoctorNavigationViewController.m
 //  HealthcareHack
 //
 //  Created by Jack Arendt on 2/28/15.
 //  Copyright (c) 2015 John Arendt. All rights reserved.
 //
 
-#import "DoctorReferralViewController.h"
+#import "DoctorNavigationViewController.h"
 #import "HHUtility.h"
 
-@interface DoctorReferralViewController () 
+@interface DoctorNavigationViewController ()
+
 @end
 
-@implementation DoctorReferralViewController
+@implementation DoctorNavigationViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self.navigationController setNavigationBarHidden:NO animated:NO];
-
+    [self.navigationBar setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:
+                                                [UIFont fontWithName:kFontName size:21],
+                                                NSFontAttributeName, nil]];
     // Do any additional setup after loading the view.
 }
 

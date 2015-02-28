@@ -21,6 +21,21 @@
 		2E102A6D1AA1919800A3EE79 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2E102A6C1AA1919800A3EE79 /* MapKit.framework */; };
 		2E102A711AA191BF00A3EE79 /* DoctorReferralViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E102A701AA191BF00A3EE79 /* DoctorReferralViewController.m */; };
 		2E102A741AA191D100A3EE79 /* DoctorListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E102A731AA191D100A3EE79 /* DoctorListViewController.m */; };
+		2E102A771AA1940A00A3EE79 /* HHUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E102A761AA1940A00A3EE79 /* HHUtility.m */; };
+		2E102A7A1AA194EC00A3EE79 /* TabBarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E102A791AA194EC00A3EE79 /* TabBarViewController.m */; };
+		2E102A7F1AA1A4F400A3EE79 /* Neou-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2E102A7D1AA1A49B00A3EE79 /* Neou-Bold.ttf */; };
+		2E102A801AA1A4F400A3EE79 /* Neou-Thin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2E102A7E1AA1A49B00A3EE79 /* Neou-Thin.ttf */; };
+		2E102A861AA1A63400A3EE79 /* BebasNeue Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 2E102A811AA1A61B00A3EE79 /* BebasNeue Bold.otf */; };
+		2E102A871AA1A63400A3EE79 /* BebasNeue Book.otf in Resources */ = {isa = PBXBuildFile; fileRef = 2E102A821AA1A61B00A3EE79 /* BebasNeue Book.otf */; };
+		2E102A881AA1A63400A3EE79 /* BebasNeue Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = 2E102A831AA1A61B00A3EE79 /* BebasNeue Light.otf */; };
+		2E102A891AA1A63400A3EE79 /* BebasNeue Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 2E102A841AA1A61B00A3EE79 /* BebasNeue Regular.otf */; };
+		2E102A8A1AA1A63400A3EE79 /* BebasNeue Thin.otf in Resources */ = {isa = PBXBuildFile; fileRef = 2E102A851AA1A61B00A3EE79 /* BebasNeue Thin.otf */; };
+		2E102A8D1AA1A88C00A3EE79 /* BEBAS___.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2E102A8C1AA1A85B00A3EE79 /* BEBAS___.ttf */; };
+		2E102A901AA1A95000A3EE79 /* ProblemNavigationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E102A8F1AA1A95000A3EE79 /* ProblemNavigationViewController.m */; };
+		2E102A931AA1A95C00A3EE79 /* DoctorNavigationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E102A921AA1A95C00A3EE79 /* DoctorNavigationViewController.m */; };
+		2E102A961AA1A96900A3EE79 /* ProfileNavigationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E102A951AA1A96900A3EE79 /* ProfileNavigationViewController.m */; };
+		2E102A9A1AA1AC7100A3EE79 /* HHUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E102A991AA1AC7100A3EE79 /* HHUser.m */; };
+		2E102A9E1AA1AEAE00A3EE79 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2E102A9D1AA1AEAE00A3EE79 /* CoreLocation.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,6 +74,27 @@
 		2E102A701AA191BF00A3EE79 /* DoctorReferralViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DoctorReferralViewController.m; sourceTree = "<group>"; };
 		2E102A721AA191D100A3EE79 /* DoctorListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DoctorListViewController.h; sourceTree = "<group>"; };
 		2E102A731AA191D100A3EE79 /* DoctorListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DoctorListViewController.m; sourceTree = "<group>"; };
+		2E102A751AA1940A00A3EE79 /* HHUtility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HHUtility.h; sourceTree = "<group>"; };
+		2E102A761AA1940A00A3EE79 /* HHUtility.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HHUtility.m; sourceTree = "<group>"; };
+		2E102A781AA194EC00A3EE79 /* TabBarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TabBarViewController.h; sourceTree = "<group>"; };
+		2E102A791AA194EC00A3EE79 /* TabBarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TabBarViewController.m; sourceTree = "<group>"; };
+		2E102A7D1AA1A49B00A3EE79 /* Neou-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Neou-Bold.ttf"; sourceTree = "<group>"; };
+		2E102A7E1AA1A49B00A3EE79 /* Neou-Thin.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Neou-Thin.ttf"; sourceTree = "<group>"; };
+		2E102A811AA1A61B00A3EE79 /* BebasNeue Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "BebasNeue Bold.otf"; sourceTree = "<group>"; };
+		2E102A821AA1A61B00A3EE79 /* BebasNeue Book.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "BebasNeue Book.otf"; sourceTree = "<group>"; };
+		2E102A831AA1A61B00A3EE79 /* BebasNeue Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "BebasNeue Light.otf"; sourceTree = "<group>"; };
+		2E102A841AA1A61B00A3EE79 /* BebasNeue Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "BebasNeue Regular.otf"; sourceTree = "<group>"; };
+		2E102A851AA1A61B00A3EE79 /* BebasNeue Thin.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "BebasNeue Thin.otf"; sourceTree = "<group>"; };
+		2E102A8C1AA1A85B00A3EE79 /* BEBAS___.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "BEBAS___.ttf"; sourceTree = "<group>"; };
+		2E102A8E1AA1A95000A3EE79 /* ProblemNavigationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProblemNavigationViewController.h; sourceTree = "<group>"; };
+		2E102A8F1AA1A95000A3EE79 /* ProblemNavigationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProblemNavigationViewController.m; sourceTree = "<group>"; };
+		2E102A911AA1A95C00A3EE79 /* DoctorNavigationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DoctorNavigationViewController.h; sourceTree = "<group>"; };
+		2E102A921AA1A95C00A3EE79 /* DoctorNavigationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DoctorNavigationViewController.m; sourceTree = "<group>"; };
+		2E102A941AA1A96900A3EE79 /* ProfileNavigationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProfileNavigationViewController.h; sourceTree = "<group>"; };
+		2E102A951AA1A96900A3EE79 /* ProfileNavigationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProfileNavigationViewController.m; sourceTree = "<group>"; };
+		2E102A981AA1AC7100A3EE79 /* HHUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HHUser.h; sourceTree = "<group>"; };
+		2E102A991AA1AC7100A3EE79 /* HHUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HHUser.m; sourceTree = "<group>"; };
+		2E102A9D1AA1AEAE00A3EE79 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,6 +102,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2E102A9E1AA1AEAE00A3EE79 /* CoreLocation.framework in Frameworks */,
 				2E102A6D1AA1919800A3EE79 /* MapKit.framework in Frameworks */,
 				2E102A6A1AA1916100A3EE79 /* HealthKit.framework in Frameworks */,
 			);
@@ -84,6 +121,7 @@
 		2E102A2B1AA18EC800A3EE79 = {
 			isa = PBXGroup;
 			children = (
+				2E102A8B1AA1A68200A3EE79 /* Fonts */,
 				2E102A6E1AA191A500A3EE79 /* Frameworks */,
 				2E102A361AA18EC800A3EE79 /* HealthcareHack */,
 				2E102A531AA18EC800A3EE79 /* HealthcareHackTests */,
@@ -106,17 +144,10 @@
 				2E102A6B1AA1916100A3EE79 /* HealthcareHack.entitlements */,
 				2E102A3B1AA18EC800A3EE79 /* AppDelegate.h */,
 				2E102A3C1AA18EC800A3EE79 /* AppDelegate.m */,
-				2E102A601AA1905700A3EE79 /* PatientSentenceViewController.h */,
-				2E102A611AA1905700A3EE79 /* PatientSentenceViewController.m */,
 				2E102A441AA18EC800A3EE79 /* Main.storyboard */,
-				2E102A721AA191D100A3EE79 /* DoctorListViewController.h */,
-				2E102A731AA191D100A3EE79 /* DoctorListViewController.m */,
-				2E102A6F1AA191BF00A3EE79 /* DoctorReferralViewController.h */,
-				2E102A701AA191BF00A3EE79 /* DoctorReferralViewController.m */,
-				2E102A661AA1906D00A3EE79 /* ProfileViewController.h */,
-				2E102A671AA1906D00A3EE79 /* ProfileViewController.m */,
-				2E102A631AA1906300A3EE79 /* DoctorSentenceViewController.h */,
-				2E102A641AA1906300A3EE79 /* DoctorSentenceViewController.m */,
+				2E102A971AA1A98800A3EE79 /* Navigation and Tab Controllers */,
+				2E102A9C1AA1AC8300A3EE79 /* Controllers */,
+				2E102A9B1AA1AC7C00A3EE79 /* Models */,
 				2E102A471AA18EC800A3EE79 /* Images.xcassets */,
 				2E102A491AA18EC800A3EE79 /* LaunchScreen.xib */,
 				2E102A3E1AA18EC800A3EE79 /* HealthcareHack.xcdatamodeld */,
@@ -154,10 +185,69 @@
 		2E102A6E1AA191A500A3EE79 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				2E102A9D1AA1AEAE00A3EE79 /* CoreLocation.framework */,
 				2E102A6C1AA1919800A3EE79 /* MapKit.framework */,
 				2E102A691AA1916100A3EE79 /* HealthKit.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		2E102A8B1AA1A68200A3EE79 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				2E102A8C1AA1A85B00A3EE79 /* BEBAS___.ttf */,
+				2E102A7D1AA1A49B00A3EE79 /* Neou-Bold.ttf */,
+				2E102A7E1AA1A49B00A3EE79 /* Neou-Thin.ttf */,
+				2E102A811AA1A61B00A3EE79 /* BebasNeue Bold.otf */,
+				2E102A821AA1A61B00A3EE79 /* BebasNeue Book.otf */,
+				2E102A831AA1A61B00A3EE79 /* BebasNeue Light.otf */,
+				2E102A841AA1A61B00A3EE79 /* BebasNeue Regular.otf */,
+				2E102A851AA1A61B00A3EE79 /* BebasNeue Thin.otf */,
+			);
+			name = Fonts;
+			sourceTree = "<group>";
+		};
+		2E102A971AA1A98800A3EE79 /* Navigation and Tab Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				2E102A941AA1A96900A3EE79 /* ProfileNavigationViewController.h */,
+				2E102A951AA1A96900A3EE79 /* ProfileNavigationViewController.m */,
+				2E102A911AA1A95C00A3EE79 /* DoctorNavigationViewController.h */,
+				2E102A921AA1A95C00A3EE79 /* DoctorNavigationViewController.m */,
+				2E102A8E1AA1A95000A3EE79 /* ProblemNavigationViewController.h */,
+				2E102A8F1AA1A95000A3EE79 /* ProblemNavigationViewController.m */,
+				2E102A781AA194EC00A3EE79 /* TabBarViewController.h */,
+				2E102A791AA194EC00A3EE79 /* TabBarViewController.m */,
+			);
+			name = "Navigation and Tab Controllers";
+			sourceTree = "<group>";
+		};
+		2E102A9B1AA1AC7C00A3EE79 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				2E102A981AA1AC7100A3EE79 /* HHUser.h */,
+				2E102A991AA1AC7100A3EE79 /* HHUser.m */,
+				2E102A751AA1940A00A3EE79 /* HHUtility.h */,
+				2E102A761AA1940A00A3EE79 /* HHUtility.m */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
+		2E102A9C1AA1AC8300A3EE79 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				2E102A601AA1905700A3EE79 /* PatientSentenceViewController.h */,
+				2E102A611AA1905700A3EE79 /* PatientSentenceViewController.m */,
+				2E102A6F1AA191BF00A3EE79 /* DoctorReferralViewController.h */,
+				2E102A701AA191BF00A3EE79 /* DoctorReferralViewController.m */,
+				2E102A631AA1906300A3EE79 /* DoctorSentenceViewController.h */,
+				2E102A641AA1906300A3EE79 /* DoctorSentenceViewController.m */,
+				2E102A721AA191D100A3EE79 /* DoctorListViewController.h */,
+				2E102A731AA191D100A3EE79 /* DoctorListViewController.m */,
+				2E102A661AA1906D00A3EE79 /* ProfileViewController.h */,
+				2E102A671AA1906D00A3EE79 /* ProfileViewController.m */,
+			);
+			name = Controllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -249,6 +339,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2E102A8D1AA1A88C00A3EE79 /* BEBAS___.ttf in Resources */,
+				2E102A861AA1A63400A3EE79 /* BebasNeue Bold.otf in Resources */,
+				2E102A871AA1A63400A3EE79 /* BebasNeue Book.otf in Resources */,
+				2E102A881AA1A63400A3EE79 /* BebasNeue Light.otf in Resources */,
+				2E102A891AA1A63400A3EE79 /* BebasNeue Regular.otf in Resources */,
+				2E102A8A1AA1A63400A3EE79 /* BebasNeue Thin.otf in Resources */,
+				2E102A7F1AA1A4F400A3EE79 /* Neou-Bold.ttf in Resources */,
+				2E102A801AA1A4F400A3EE79 /* Neou-Thin.ttf in Resources */,
 				2E102A461AA18EC800A3EE79 /* Main.storyboard in Resources */,
 				2E102A4B1AA18EC800A3EE79 /* LaunchScreen.xib in Resources */,
 				2E102A481AA18EC800A3EE79 /* Images.xcassets in Resources */,
@@ -269,13 +367,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2E102A7A1AA194EC00A3EE79 /* TabBarViewController.m in Sources */,
+				2E102A771AA1940A00A3EE79 /* HHUtility.m in Sources */,
+				2E102A901AA1A95000A3EE79 /* ProblemNavigationViewController.m in Sources */,
 				2E102A3D1AA18EC800A3EE79 /* AppDelegate.m in Sources */,
 				2E102A3A1AA18EC800A3EE79 /* main.m in Sources */,
 				2E102A711AA191BF00A3EE79 /* DoctorReferralViewController.m in Sources */,
+				2E102A9A1AA1AC7100A3EE79 /* HHUser.m in Sources */,
+				2E102A931AA1A95C00A3EE79 /* DoctorNavigationViewController.m in Sources */,
 				2E102A741AA191D100A3EE79 /* DoctorListViewController.m in Sources */,
 				2E102A401AA18EC800A3EE79 /* HealthcareHack.xcdatamodeld in Sources */,
 				2E102A621AA1905700A3EE79 /* PatientSentenceViewController.m in Sources */,
 				2E102A681AA1906D00A3EE79 /* ProfileViewController.m in Sources */,
+				2E102A961AA1A96900A3EE79 /* ProfileNavigationViewController.m in Sources */,
 				2E102A651AA1906300A3EE79 /* DoctorSentenceViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
