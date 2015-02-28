@@ -11,7 +11,7 @@
 @interface HHUser () {
     HKHealthStore *healthKitStore;
 }
-@property (nonatomic) BOOL loaded;
+@property (nonatomic, strong) CLLocationManager *manager;
 @end
 
 @implementation HHUser
@@ -21,15 +21,14 @@
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
         sharedUser = [[self alloc] init];
+        sharedUser.manager = [[CLLocationManager alloc] init];
         [sharedUser authorizeHealthKit:^(NSString *err, BOOL success){
             if(success) {
-                // Update the user interface based on the current user's health information.
                 dispatch_async(dispatch_get_main_queue(), ^{
                     [sharedUser getDateOfBirth];
                     [sharedUser getGender];
                     [sharedUser getUserHeight:^{
                         [sharedUser getUserWeight:^{
-                            NSLog(@"%@, %@", sharedUser.height, sharedUser.weight);
                             completionHandler(err, success, sharedUser);
                         }];
                     }];
@@ -37,7 +36,10 @@
             }
         }];
     });
+    completionHandler(nil, YES, sharedUser);
 }
+
+#pragma mark - Health Kit Methods
 
 -(void)authorizeHealthKit:(void(^)(NSString *err, BOOL success))completionHandler {
     healthKitStore = [[HKHealthStore alloc] init];
@@ -139,6 +141,38 @@
     return [NSString stringWithFormat:@"%i\'%i\"", self.height.intValue/12, self.height.intValue %12];
 }
 
+-(NSString *)getFormattedGender {
+    switch (self.gender.biologicalSex) {
+        case HKBiologicalSexFemale:
+            return @"Female";
+            break;
+        case HKBiologicalSexMale:
+            return @"Male";
+        case HKBiologicalSexNotSet:
+            return @"Not Set";
+        default:
+            return nil;
+            break;
+    }
+}
+
+#pragma mark - CL Delegate methods
+
+-(void)startUpdatingUserLocation {
+    self.manager.delegate = self;
+    [self.manager requestWhenInUseAuthorization];
+    [self.manager startUpdatingLocation];
+}
+
+-(void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray *)locations {
+    self.location = [locations lastObject];
+}
+
+-(void)locationManager:(CLLocationManager *)manager didChangeAuthorizationStatus:(CLAuthorizationStatus)status {
+    if(status == kCLAuthorizationStatusAuthorizedWhenInUse) {
+        [self.manager startUpdatingLocation];
+    }
+}
 
 
 

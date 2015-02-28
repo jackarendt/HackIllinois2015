@@ -8,31 +8,44 @@
 
 #import "DoctorSentenceViewController.h"
 #import "HHUtility.h"
+#import "HHUser.h"
 
 @interface DoctorSentenceViewController () {
     CGFloat height;
     CGFloat width;
+    HHUser *_user;
+    
 }
 @property (nonatomic, strong) UILabel *sentenceLabel;
+@property (nonatomic, strong) SentenceView *sentenceView;
 @end
 
 @implementation DoctorSentenceViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self.navigationController setNavigationBarHidden:YES animated:NO];
-    self.view.backgroundColor = [HHUtility getGreenColor];
+    [HHUser sharedUser:^(NSString *err, BOOL success, HHUser *user){
+        _user = user;
+        [_user startUpdatingUserLocation];
+    }];
     
-    self.view.backgroundColor = [HHUtility getGreenColor];
     height = self.view.bounds.size.height;
     width = self.view.bounds.size.width;
-    self.sentenceLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 40, width, 45)];
+    self.view = [HHUtility getGradientForHeight:height width:width];
+    
+    [self.navigationController setNavigationBarHidden:YES animated:NO];
+
+    self.sentenceLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 40, width, 50)];
     self.sentenceLabel.text = @"Find A Doctor";
     self.sentenceLabel.textAlignment = NSTextAlignmentCenter;
     self.sentenceLabel.textColor = [UIColor whiteColor];
     self.sentenceLabel.font = [UIFont fontWithName:kFontName size:45];
-    
     [self.view addSubview:self.sentenceLabel];
+    
+    self.sentenceView = [[SentenceView alloc] initWithFrame:CGRectMake(0, 120, width, height - 120)];
+    self.sentenceView.delegate = self;
+    [self.sentenceView setPhrases:@[@"I want a doctor", @"For My", @"QUERY", @"Within", @"QUERY", @"Of", @"QUERY"]];
+    [self.view addSubview:self.sentenceView];
     // Do any additional setup after loading the view.
 }
 
@@ -40,6 +53,48 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
+-(void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+}
+
+
+#pragma mark - Sentence View Delgate Methods
+
+-(BOOL)sentenceViewCanHaveAddSymptoms:(id)sentenceView {
+    return NO;
+}
+
+-(void)sentenceView:(id)sentenceView didReturnItem:(NSString *)item forIndex:(NSInteger)index {
+    
+}
+
+-(NSArray *)sentenceView:(id)sentenceView didRequestItemsForIndex:(NSInteger)index {
+    return nil;
+}
+
+-(NSString *)titleForSubmitButtonForSentenceView:(id)sentenceView {
+    return @"Find";
+}
+
+-(BOOL)needsSecondTypeForIndex:(NSInteger)index {
+    return NO;
+}
+
+-(NSArray *)sentenceView:(id)sentenceView didRequestSecondItemsForIndex:(NSInteger)index {
+    return nil;
+}
+
+-(void)sentenceViewPickerDidBecomeActive:(BOOL)active {
+    if(active) {
+        self.tabBarController.tabBar.hidden = YES;
+    }
+    
+    else {
+        self.tabBarController.tabBar.hidden = NO;
+    }
+}
+
 
 /*
 #pragma mark - Navigation

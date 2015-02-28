@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "SentenceView.h"
 
-@interface DoctorSentenceViewController : UIViewController
+@interface DoctorSentenceViewController : UIViewController <SentenceViewDelegate>
 
 @end

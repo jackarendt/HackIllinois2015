@@ -29,7 +29,6 @@
 	<key>UIRequiredDeviceCapabilities</key>
 	<array>
 		<string>armv7</string>
-		<string>healthkit</string>
 	</array>
 	<key>UISupportedInterfaceOrientations</key>
 	<array>
@@ -46,5 +45,7 @@
 		<string>BebasNeue Thin.otf</string>
 		<string>BEBAS___.ttf</string>
 	</array>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string></string>
 </dict>
 </plist>

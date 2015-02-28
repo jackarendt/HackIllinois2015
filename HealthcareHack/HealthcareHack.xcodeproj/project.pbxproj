@@ -36,6 +36,9 @@
 		2E102A961AA1A96900A3EE79 /* ProfileNavigationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E102A951AA1A96900A3EE79 /* ProfileNavigationViewController.m */; };
 		2E102A9A1AA1AC7100A3EE79 /* HHUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E102A991AA1AC7100A3EE79 /* HHUser.m */; };
 		2E102A9E1AA1AEAE00A3EE79 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2E102A9D1AA1AEAE00A3EE79 /* CoreLocation.framework */; };
+		2E102AA11AA1E23800A3EE79 /* SentenceView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E102AA01AA1E23800A3EE79 /* SentenceView.m */; };
+		2E102AA41AA246F500A3EE79 /* SelectView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E102AA31AA246F500A3EE79 /* SelectView.m */; };
+		2E102AA81AA26F5000A3EE79 /* PickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E102AA71AA26F5000A3EE79 /* PickerView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -95,6 +98,12 @@
 		2E102A981AA1AC7100A3EE79 /* HHUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HHUser.h; sourceTree = "<group>"; };
 		2E102A991AA1AC7100A3EE79 /* HHUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HHUser.m; sourceTree = "<group>"; };
 		2E102A9D1AA1AEAE00A3EE79 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		2E102A9F1AA1E23800A3EE79 /* SentenceView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SentenceView.h; sourceTree = "<group>"; };
+		2E102AA01AA1E23800A3EE79 /* SentenceView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SentenceView.m; sourceTree = "<group>"; };
+		2E102AA21AA246F500A3EE79 /* SelectView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelectView.h; sourceTree = "<group>"; };
+		2E102AA31AA246F500A3EE79 /* SelectView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SelectView.m; sourceTree = "<group>"; };
+		2E102AA61AA26F5000A3EE79 /* PickerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PickerView.h; sourceTree = "<group>"; };
+		2E102AA71AA26F5000A3EE79 /* PickerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PickerView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -147,6 +156,7 @@
 				2E102A441AA18EC800A3EE79 /* Main.storyboard */,
 				2E102A971AA1A98800A3EE79 /* Navigation and Tab Controllers */,
 				2E102A9C1AA1AC8300A3EE79 /* Controllers */,
+				2E102AA51AA246F900A3EE79 /* Views */,
 				2E102A9B1AA1AC7C00A3EE79 /* Models */,
 				2E102A471AA18EC800A3EE79 /* Images.xcassets */,
 				2E102A491AA18EC800A3EE79 /* LaunchScreen.xib */,
@@ -248,6 +258,19 @@
 				2E102A671AA1906D00A3EE79 /* ProfileViewController.m */,
 			);
 			name = Controllers;
+			sourceTree = "<group>";
+		};
+		2E102AA51AA246F900A3EE79 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				2E102AA61AA26F5000A3EE79 /* PickerView.h */,
+				2E102AA71AA26F5000A3EE79 /* PickerView.m */,
+				2E102A9F1AA1E23800A3EE79 /* SentenceView.h */,
+				2E102AA01AA1E23800A3EE79 /* SentenceView.m */,
+				2E102AA21AA246F500A3EE79 /* SelectView.h */,
+				2E102AA31AA246F500A3EE79 /* SelectView.m */,
+			);
+			name = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -368,7 +391,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				2E102A7A1AA194EC00A3EE79 /* TabBarViewController.m in Sources */,
+				2E102AA81AA26F5000A3EE79 /* PickerView.m in Sources */,
 				2E102A771AA1940A00A3EE79 /* HHUtility.m in Sources */,
+				2E102AA41AA246F500A3EE79 /* SelectView.m in Sources */,
 				2E102A901AA1A95000A3EE79 /* ProblemNavigationViewController.m in Sources */,
 				2E102A3D1AA18EC800A3EE79 /* AppDelegate.m in Sources */,
 				2E102A3A1AA18EC800A3EE79 /* main.m in Sources */,
@@ -379,6 +404,7 @@
 				2E102A401AA18EC800A3EE79 /* HealthcareHack.xcdatamodeld in Sources */,
 				2E102A621AA1905700A3EE79 /* PatientSentenceViewController.m in Sources */,
 				2E102A681AA1906D00A3EE79 /* ProfileViewController.m in Sources */,
+				2E102AA11AA1E23800A3EE79 /* SentenceView.m in Sources */,
 				2E102A961AA1A96900A3EE79 /* ProfileNavigationViewController.m in Sources */,
 				2E102A651AA1906300A3EE79 /* DoctorSentenceViewController.m in Sources */,
 			);
