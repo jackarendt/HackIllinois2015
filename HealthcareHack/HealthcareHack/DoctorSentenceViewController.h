@@ -1,5 +1,5 @@
 //
-//  ViewController.h
+//  DoctorSentenceViewController.h
 //  HealthcareHack
 //
 //  Created by Jack Arendt on 2/27/15.
@@ -8,8 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ViewController : UIViewController
-
+@interface DoctorSentenceViewController : UIViewController
 
 @end
-

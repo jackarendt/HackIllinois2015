@@ -10,11 +10,17 @@
 		2E102A3A1AA18EC800A3EE79 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E102A391AA18EC800A3EE79 /* main.m */; };
 		2E102A3D1AA18EC800A3EE79 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E102A3C1AA18EC800A3EE79 /* AppDelegate.m */; };
 		2E102A401AA18EC800A3EE79 /* HealthcareHack.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 2E102A3E1AA18EC800A3EE79 /* HealthcareHack.xcdatamodeld */; };
-		2E102A431AA18EC800A3EE79 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E102A421AA18EC800A3EE79 /* ViewController.m */; };
 		2E102A461AA18EC800A3EE79 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2E102A441AA18EC800A3EE79 /* Main.storyboard */; };
 		2E102A481AA18EC800A3EE79 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2E102A471AA18EC800A3EE79 /* Images.xcassets */; };
 		2E102A4B1AA18EC800A3EE79 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2E102A491AA18EC800A3EE79 /* LaunchScreen.xib */; };
 		2E102A571AA18EC800A3EE79 /* HealthcareHackTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E102A561AA18EC800A3EE79 /* HealthcareHackTests.m */; };
+		2E102A621AA1905700A3EE79 /* PatientSentenceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E102A611AA1905700A3EE79 /* PatientSentenceViewController.m */; };
+		2E102A651AA1906300A3EE79 /* DoctorSentenceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E102A641AA1906300A3EE79 /* DoctorSentenceViewController.m */; };
+		2E102A681AA1906D00A3EE79 /* ProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E102A671AA1906D00A3EE79 /* ProfileViewController.m */; };
+		2E102A6A1AA1916100A3EE79 /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2E102A691AA1916100A3EE79 /* HealthKit.framework */; };
+		2E102A6D1AA1919800A3EE79 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2E102A6C1AA1919800A3EE79 /* MapKit.framework */; };
+		2E102A711AA191BF00A3EE79 /* DoctorReferralViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E102A701AA191BF00A3EE79 /* DoctorReferralViewController.m */; };
+		2E102A741AA191D100A3EE79 /* DoctorListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E102A731AA191D100A3EE79 /* DoctorListViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -34,14 +40,25 @@
 		2E102A3B1AA18EC800A3EE79 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		2E102A3C1AA18EC800A3EE79 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		2E102A3F1AA18EC800A3EE79 /* HealthcareHack.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = HealthcareHack.xcdatamodel; sourceTree = "<group>"; };
-		2E102A411AA18EC800A3EE79 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		2E102A421AA18EC800A3EE79 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		2E102A451AA18EC800A3EE79 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		2E102A471AA18EC800A3EE79 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		2E102A4A1AA18EC800A3EE79 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		2E102A501AA18EC800A3EE79 /* HealthcareHackTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HealthcareHackTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		2E102A551AA18EC800A3EE79 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2E102A561AA18EC800A3EE79 /* HealthcareHackTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HealthcareHackTests.m; sourceTree = "<group>"; };
+		2E102A601AA1905700A3EE79 /* PatientSentenceViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PatientSentenceViewController.h; sourceTree = "<group>"; };
+		2E102A611AA1905700A3EE79 /* PatientSentenceViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PatientSentenceViewController.m; sourceTree = "<group>"; };
+		2E102A631AA1906300A3EE79 /* DoctorSentenceViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DoctorSentenceViewController.h; sourceTree = "<group>"; };
+		2E102A641AA1906300A3EE79 /* DoctorSentenceViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DoctorSentenceViewController.m; sourceTree = "<group>"; };
+		2E102A661AA1906D00A3EE79 /* ProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProfileViewController.h; sourceTree = "<group>"; };
+		2E102A671AA1906D00A3EE79 /* ProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProfileViewController.m; sourceTree = "<group>"; };
+		2E102A691AA1916100A3EE79 /* HealthKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HealthKit.framework; path = System/Library/Frameworks/HealthKit.framework; sourceTree = SDKROOT; };
+		2E102A6B1AA1916100A3EE79 /* HealthcareHack.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = HealthcareHack.entitlements; sourceTree = "<group>"; };
+		2E102A6C1AA1919800A3EE79 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		2E102A6F1AA191BF00A3EE79 /* DoctorReferralViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DoctorReferralViewController.h; sourceTree = "<group>"; };
+		2E102A701AA191BF00A3EE79 /* DoctorReferralViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DoctorReferralViewController.m; sourceTree = "<group>"; };
+		2E102A721AA191D100A3EE79 /* DoctorListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DoctorListViewController.h; sourceTree = "<group>"; };
+		2E102A731AA191D100A3EE79 /* DoctorListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DoctorListViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -49,6 +66,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2E102A6D1AA1919800A3EE79 /* MapKit.framework in Frameworks */,
+				2E102A6A1AA1916100A3EE79 /* HealthKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -65,6 +84,7 @@
 		2E102A2B1AA18EC800A3EE79 = {
 			isa = PBXGroup;
 			children = (
+				2E102A6E1AA191A500A3EE79 /* Frameworks */,
 				2E102A361AA18EC800A3EE79 /* HealthcareHack */,
 				2E102A531AA18EC800A3EE79 /* HealthcareHackTests */,
 				2E102A351AA18EC800A3EE79 /* Products */,
@@ -83,11 +103,20 @@
 		2E102A361AA18EC800A3EE79 /* HealthcareHack */ = {
 			isa = PBXGroup;
 			children = (
+				2E102A6B1AA1916100A3EE79 /* HealthcareHack.entitlements */,
 				2E102A3B1AA18EC800A3EE79 /* AppDelegate.h */,
 				2E102A3C1AA18EC800A3EE79 /* AppDelegate.m */,
-				2E102A411AA18EC800A3EE79 /* ViewController.h */,
-				2E102A421AA18EC800A3EE79 /* ViewController.m */,
+				2E102A601AA1905700A3EE79 /* PatientSentenceViewController.h */,
+				2E102A611AA1905700A3EE79 /* PatientSentenceViewController.m */,
 				2E102A441AA18EC800A3EE79 /* Main.storyboard */,
+				2E102A721AA191D100A3EE79 /* DoctorListViewController.h */,
+				2E102A731AA191D100A3EE79 /* DoctorListViewController.m */,
+				2E102A6F1AA191BF00A3EE79 /* DoctorReferralViewController.h */,
+				2E102A701AA191BF00A3EE79 /* DoctorReferralViewController.m */,
+				2E102A661AA1906D00A3EE79 /* ProfileViewController.h */,
+				2E102A671AA1906D00A3EE79 /* ProfileViewController.m */,
+				2E102A631AA1906300A3EE79 /* DoctorSentenceViewController.h */,
+				2E102A641AA1906300A3EE79 /* DoctorSentenceViewController.m */,
 				2E102A471AA18EC800A3EE79 /* Images.xcassets */,
 				2E102A491AA18EC800A3EE79 /* LaunchScreen.xib */,
 				2E102A3E1AA18EC800A3EE79 /* HealthcareHack.xcdatamodeld */,
@@ -120,6 +149,15 @@
 				2E102A551AA18EC800A3EE79 /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		2E102A6E1AA191A500A3EE79 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				2E102A6C1AA1919800A3EE79 /* MapKit.framework */,
+				2E102A691AA1916100A3EE79 /* HealthKit.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -171,6 +209,15 @@
 				TargetAttributes = {
 					2E102A331AA18EC800A3EE79 = {
 						CreatedOnToolsVersion = 6.1.1;
+						DevelopmentTeam = 35RV9RPQY7;
+						SystemCapabilities = {
+							com.apple.HealthKit = {
+								enabled = 1;
+							};
+							com.apple.Maps.iOS = {
+								enabled = 1;
+							};
+						};
 					};
 					2E102A4F1AA18EC800A3EE79 = {
 						CreatedOnToolsVersion = 6.1.1;
@@ -224,8 +271,12 @@
 			files = (
 				2E102A3D1AA18EC800A3EE79 /* AppDelegate.m in Sources */,
 				2E102A3A1AA18EC800A3EE79 /* main.m in Sources */,
-				2E102A431AA18EC800A3EE79 /* ViewController.m in Sources */,
+				2E102A711AA191BF00A3EE79 /* DoctorReferralViewController.m in Sources */,
+				2E102A741AA191D100A3EE79 /* DoctorListViewController.m in Sources */,
 				2E102A401AA18EC800A3EE79 /* HealthcareHack.xcdatamodeld in Sources */,
+				2E102A621AA1905700A3EE79 /* PatientSentenceViewController.m in Sources */,
+				2E102A681AA1906D00A3EE79 /* ProfileViewController.m in Sources */,
+				2E102A651AA1906300A3EE79 /* DoctorSentenceViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -347,9 +398,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = HealthcareHack/HealthcareHack.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = HealthcareHack/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
@@ -357,9 +413,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = HealthcareHack/HealthcareHack.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = HealthcareHack/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};
