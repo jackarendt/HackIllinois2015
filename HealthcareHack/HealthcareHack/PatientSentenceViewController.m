@@ -132,6 +132,8 @@
         }
         else {
             _user.doctorRecommendation = jsonDict[@"doctorType"];
+            _user.doctorDescription = jsonDict[@"description"];
+            _user.doctorTips = @[jsonDict[@"tip1"], jsonDict[@"tip2"], jsonDict[@"tip3"]];
             dispatch_async(dispatch_get_main_queue(), ^{
                 [self performSegueWithIdentifier:@"toDoctorReferral" sender:self];
             });

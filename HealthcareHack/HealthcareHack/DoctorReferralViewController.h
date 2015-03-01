@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface DoctorReferralViewController : UIViewController
+@interface DoctorReferralViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>
 
 @end

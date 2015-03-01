@@ -40,13 +40,15 @@
     self.tableView.backgroundColor = [UIColor clearColor];
     
     [self.view addSubview:self.tableView];
-    [self addAnnotations];
     
     UIButton *back = [[UIButton alloc] initWithFrame:CGRectMake(10, 30, 45, 45)];
     [back setImage:[UIImage imageNamed:@"BackDarkButton"] forState:UIControlStateNormal];
     [back setImage:[UIImage imageNamed:@"BackButtonHighlighted"] forState:UIControlStateHighlighted];
     [back addTarget:self action:@selector(goBack) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:back];
+    
+    [self addAnnotations];
+
 
     // Do any additional setup after loading the view.
 }

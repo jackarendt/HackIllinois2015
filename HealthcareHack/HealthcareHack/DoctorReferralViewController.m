@@ -22,6 +22,8 @@
 @property (nonatomic, strong) UILabel *recommend;
 @property (nonatomic, strong) UILabel *doctor;
 @property (nonatomic, strong) UIButton *findOne;
+@property (nonatomic, strong) UILabel *descriptionLabel;
+@property (nonatomic, strong) UITableView *tableView;
 @end
 
 @implementation DoctorReferralViewController
@@ -46,21 +48,40 @@
     [back addTarget:self action:@selector(goBack) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:back];
     
+    UIButton *loc = [[UIButton alloc] initWithFrame:CGRectMake(width - 50, 30, 30, 45)];
+    [loc setImage:[UIImage imageNamed:@"Pin"] forState:UIControlStateNormal];
+    [loc setImage:[UIImage imageNamed:@"PinHighlighted"] forState:UIControlStateHighlighted];
+    [loc addTarget:self action:@selector(goToMap) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:loc];
     // Do any additional setup after loading the view.
 }
 
 -(void)updateDoctorLabel {
-    self.recommend = [[UILabel alloc] initWithFrame:CGRectMake(10, 100, width - 20, 45)];
+    self.recommend = [[UILabel alloc] initWithFrame:CGRectMake(10, 120, width - 20, 45)];
     self.recommend.font = [UIFont fontWithName:kFontName size:30];
     self.recommend.textColor = [UIColor colorWithRed:0.8 green: 0.8 blue:0.8 alpha:1];
     self.recommend.textAlignment = NSTextAlignmentCenter;
     [self.view addSubview:self.recommend];
     
-    self.doctor = [[UILabel alloc] initWithFrame:CGRectMake(10, 160, width - 20, 50)];
+    self.doctor = [[UILabel alloc] initWithFrame:CGRectMake(10, 180, width - 20, 50)];
     self.doctor.font = [UIFont fontWithName:kFontName size:45];
     self.doctor.textColor = [UIColor whiteColor];
     self.doctor.textAlignment = NSTextAlignmentCenter;
+    self.doctor.minimumScaleFactor = 0.7;
+    self.doctor.adjustsFontSizeToFitWidth = YES;
     [self.view addSubview:self.doctor];
+    
+    UIButton *clickableLabel = [[UIButton alloc] initWithFrame:self.doctor.frame];
+    [clickableLabel addTarget:self action:@selector(goToMap) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:clickableLabel];
+    
+    self.descriptionLabel = [[UILabel alloc] initWithFrame:CGRectMake(10, 240, width - 20, 50)];
+    self.descriptionLabel.font = [UIFont fontWithName:kFontName size:20];
+    self.descriptionLabel.textColor = [UIColor colorWithRed:0.8 green: 0.8 blue:0.8 alpha:1];
+    self.descriptionLabel.textAlignment = NSTextAlignmentCenter;
+    self.descriptionLabel.text = _user.doctorDescription;
+    [self.view addSubview:self.descriptionLabel];
+
 
     self.doctor.text = _user.doctorRecommendation;
     
@@ -88,17 +109,25 @@
         self.recommend.text = @"We Recommend You See a";
     }
     
-    self.findOne = [[UIButton alloc] initWithFrame:CGRectMake(10, 250, width - 20, 30)];
-    NSString *title = @"Need One?";
-    if([_user.doctorRecommendation isEqualToString:kDoctorSelfCare])
-        title = @"Need a pharmacy?";
-    [self.findOne setTitle:title forState:UIControlStateNormal];
-    [self.findOne setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-    [self.findOne setTitleColor:[UIColor lightGrayColor] forState:UIControlStateHighlighted];
-    [self.findOne addTarget:self action:@selector(goToMap) forControlEvents:UIControlEventTouchUpInside];
-    self.findOne.titleLabel.font = [UIFont fontWithName:kFontName size:25.0];
-    [self.view addSubview:self.findOne];
+    UILabel *tipsLabel = [[UILabel alloc] initWithFrame:CGRectMake(15, 440, width - 30, 28)];
+    tipsLabel.text = @"Doctor's tips";
+    tipsLabel.font = [UIFont fontWithName:kFontName size:21.0];
+    tipsLabel.textColor = [UIColor whiteColor];
+    tipsLabel.textAlignment = NSTextAlignmentCenter;
+    [self.view addSubview:tipsLabel];
     
+    UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 468, width, 2)];
+    view.backgroundColor = [UIColor colorWithRed:0.8 green: 0.8 blue:0.8 alpha:1];
+    [self.view addSubview:view];
+    
+    self.tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 470, width, height - 519) style:UITableViewStylePlain];
+    self.tableView.delegate = self;
+    self.tableView.dataSource = self;
+    [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"cell"];
+    self.tableView.backgroundColor = [UIColor clearColor];
+    [self.tableView setSeparatorStyle:UITableViewCellSeparatorStyleNone];
+    self.tableView.scrollEnabled = NO;
+    [self.view addSubview:self.tableView];
 
 }
 
@@ -145,6 +174,29 @@
     DoctorListViewController *vc = [segue destinationViewController];
     vc.user = _user;
     vc.manager = manager;
+}
+
+#pragma mark - table view delegate
+-(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+    return 1;
+}
+
+-(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    return 3;
+}
+
+-(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell" forIndexPath:indexPath];
+    cell.textLabel.text = _user.doctorTips[indexPath.row];
+    cell.textLabel.font = [UIFont fontWithName:kFontName size:21.0];
+    cell.textLabel.textColor = [UIColor whiteColor];
+    cell.backgroundColor = [UIColor clearColor];
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
+    return cell;
+}
+
+-(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    return 44;
 }
 
 
