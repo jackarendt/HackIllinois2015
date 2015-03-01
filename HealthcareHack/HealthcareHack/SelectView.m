@@ -12,6 +12,8 @@
 @interface SelectView () {
     CGFloat height;
     CGFloat width;
+    NSString *_first;
+    NSString *_second;
 }
 @property (nonatomic, strong) UIView *bottomView;
 @property (nonatomic, strong) UIButton *button;
@@ -79,5 +81,19 @@
     self.resultLabel.text = sentence;
     [self.bottomView setHidden:YES];
 }
+
+-(void)setComponents:(NSString *)first second:(NSString *)second {
+    _first = first;
+    _second = second;
+}
+
+-(NSString *)getFirstComponent {
+    return _first;
+}
+
+-(NSString *)getSecondComponent {
+    return _second;
+}
+
 
 @end

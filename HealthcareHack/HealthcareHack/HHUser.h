@@ -17,7 +17,7 @@
 -(NSString *)getFormattedGender;
 -(void)startUpdatingUserLocation;
 -(void)get:(void(^)(NSError *err, NSArray *jsonArray))completionHandler;
--(void)put:(NSDictionary *)payloadDictionary completionHandler:(void(^)(NSError *err))completionHandler;
+-(void)put:(NSDictionary *)payloadDictionary completionHandler:(void(^)(NSError *err, NSDictionary *response))completionHandler;
 
 @property (nonatomic, strong) NSDate *dob;
 @property (nonatomic) NSInteger age;

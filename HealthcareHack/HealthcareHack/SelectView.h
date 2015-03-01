@@ -17,6 +17,9 @@
 @interface SelectView : UIView
 
 -(void)updateSentence:(NSString *)sentence;
+-(void)setComponents:(NSString *)first second:(NSString *)second;
+-(NSString *)getFirstComponent;
+-(NSString *)getSecondComponent;
 
 @property id<SelectViewDelegate> delegate;
 

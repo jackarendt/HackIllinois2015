@@ -36,7 +36,7 @@
     //self.view.backgroundColor = [HHUtility getGreenColor];
 
     self.sentenceLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 40, width, 55)];
-    self.sentenceLabel.text = @"The Problem";
+    self.sentenceLabel.text = @"The\tProblem";
     self.sentenceLabel.textAlignment = NSTextAlignmentCenter;
     self.sentenceLabel.textColor = [UIColor whiteColor];
     self.sentenceLabel.font = [UIFont fontWithName:kFontName size:45];
@@ -45,7 +45,7 @@
     
     self.sentenceView = [[SentenceView alloc] initWithFrame:CGRectMake(0, 120, width, height - 120)];
     self.sentenceView.delegate = self;
-    [self.sentenceView setPhrases:@[@"I have", @"QUERY", @"For", @"QUERY", @"With", @"QUERY", @"Intentsity."]];
+    [self.sentenceView setPhrases:@[@"I   have", @"QUERY", @"For", @"QUERY", @"With", @"QUERY", @"Intentsity."]];
     [self.view addSubview:self.sentenceView];
     
     
@@ -68,10 +68,10 @@
 -(NSArray *)sentenceView:(id)sentenceView didRequestItemsForIndex:(NSInteger)index {
     switch (index) {
         case 1:
-            return @[@"General", @"Front Of Head", @"Back Of Head", @"Eye", @"Ear", @"Nose", @"Mouth", @"Throat", @"Neck", @"Chest", @"Upper Back", @"Lower Back", @"Pelvis", @"Butt", @"Bowel", @"Shoulder", @"Upper Arm", @"Lower Arm", @"Elbow", @"Hand", @"Wrist", @"Finger", @"Upper Leg", @"Lower Leg", @"Knee", @"Ankle", @"Foot", @"Toe"];
+            return @[@"General", @"Forehead", @"Skull", @"Eye", @"Ear", @"Nose", @"Mouth", @"Throat", @"Neck", @"Chest", @"Upper Back", @"Lower Back", @"Pelvis", @"Butt", @"Bowel", @"Shoulder", @"Upper Arm", @"Lower Arm", @"Elbow", @"Hand", @"Wrist", @"Finger", @"Upper Leg", @"Lower Leg", @"Knee", @"Ankle", @"Foot", @"Toe"];
             break;
         case 3:
-            return @[@"Minutes", @"One Hour", @"Multiple Hours", @"One Day", @"Multiple Days", @"One Week", @"Multiple Weeks", @"Months", @"One Year", @"Multiple Years"];
+            return @[@"Couple Of Minutes", @"One Hour", @"Multiple Hours", @"One Day", @"Multiple Days", @"One Week", @"Multiple Weeks", @"Months", @"One Year", @"Multiple Years"];
             break;
         case 5:
             return @[@"Mild", @"Minor", @"Medium", @"Major", @"Extreme"];
@@ -118,17 +118,23 @@
 }
 
 -(void)submitButtonPressedWithData:(NSDictionary *)sentence {
-    [_user get:^(NSError *err, NSArray *json) {
-        NSLog(@"%@", json);
-    }];
+//    [_user get:^(NSError *err, NSArray *json) {
+//        NSLog(@"%@", json);
+//    }];
     
-    [_user put:@{@"key" : @"Value1", @"key2" : @"value2"} completionHandler:^(NSError *err){
+    NSMutableDictionary *dict = [[NSMutableDictionary alloc] init];
+    dict[@"imo"] = [NSDictionary dictionaryWithObject:@"11111" forKey:@"code"];
+    [_user put:dict completionHandler:^(NSError *err, NSDictionary *jsonDict){
         if(err) {
             NSLog(@"UGH");
         }
         else {
-            NSLog(@"YAY");
+            NSLog(@"%@", jsonDict);
         }
     }];
+}
+
+-(void)submitRequestFinishedWithSuccess:(BOOL)success {
+    
 }
 @end

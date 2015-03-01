@@ -12,7 +12,7 @@
 
 #define kQuery @"QUERY"
 #define kFontHeight 45
-#define kTextSize 30
+#define kTextSize 25
 #define kPickerHeight 230
 
 @interface SentenceView () {
@@ -57,7 +57,7 @@
     
     if([self.delegate sentenceViewCanHaveAddSymptoms:self]) {
         addMoreSymptoms = [[UIButton alloc] initWithFrame:CGRectMake(0, height - 160, width, 40)];
-        [addMoreSymptoms setTitle:@"add more symptoms" forState:UIControlStateNormal];
+        [addMoreSymptoms setTitle:@"add   more   symptoms" forState:UIControlStateNormal];
         [addMoreSymptoms setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
         [addMoreSymptoms setTitleColor:[UIColor lightGrayColor] forState:UIControlStateHighlighted];
         addMoreSymptoms.titleLabel.font = [UIFont fontWithName:kFontName size:25.0];
@@ -142,7 +142,7 @@
         firstLabel.textColor = textColor;
         [self addSubview:firstLabel];
         
-        SelectView *select = [[SelectView alloc] initWithFrame:CGRectMake(10, labelHeight, width - strikeWidth - 50, kFontHeight)];
+        SelectView *select = [[SelectView alloc] initWithFrame:CGRectMake(10, labelHeight, width - strikeWidth - 20, kFontHeight)];
         select.tag = index;
         select.delegate = self;
         [self addSubview:select];
@@ -158,7 +158,7 @@
         firstLabel.textColor = textColor;
         [self addSubview:firstLabel];
         
-        SelectView *select = [[SelectView alloc] initWithFrame:CGRectMake(strikeWidth + 50, labelHeight, width - (strikeWidth+50) -10, kFontHeight)];
+        SelectView *select = [[SelectView alloc] initWithFrame:CGRectMake(strikeWidth + 50, labelHeight, width - (strikeWidth+20) -10, kFontHeight)];
         select.tag = index;
         select.delegate = self;
         [self addSubview:select];
@@ -203,6 +203,9 @@
 
 #pragma selectView/PickerView Delegate methods
 -(void)selectViewTapped:(id)selectView {
+    if(openSelectView == selectView) {
+        return;
+    }
     NSInteger tag = ((SelectView *)selectView).tag;
     openSelectView = selectView;
     if(self.delegate) {
@@ -214,6 +217,7 @@
             components = 2;
         }
         [picker setComponentValues:first secondComp:second components:components];
+        [picker loadWithValues:[openSelectView getFirstComponent] second:[openSelectView getSecondComponent]];
     }
     [self.delegate sentenceViewPickerDidBecomeActive:YES];
     [UIView animateKeyframesWithDuration:0.3 delay:0 options:UIViewKeyframeAnimationOptionCalculationModeCubic animations:^{
@@ -233,9 +237,37 @@
 
 }
 
--(void)pickerViewDidSelectComponentsString:(NSString *)first second:(NSString *)second {
-    if([first isEqualToString:@"General"]){
-        
+-(void)pickerViewDidSelectComponentsString:(NSString *)first second:(NSString *)second onLoad:(BOOL)onLoad{
+    if(!onLoad) {
+        [openSelectView setComponents:first second:second];
+    
+        if(first && second) {
+            if([second isEqualToString:@"Fever"] || [second isEqualToString:@"Sweats"] || [second isEqualToString:@"Chills"] || [second isEqualToString:@"Dizziness"] || [second isEqualToString:@"Vision Loss"] || [second isEqualToString:@"Nausea"]) {
+                [openSelectView updateSentence:[NSString stringWithFormat:@"%@", second]];
+            }
+            else {
+                [openSelectView updateSentence:[NSString stringWithFormat:@"%@   %@", first, second]];
+            }
+        }
+        else {
+            [openSelectView updateSentence:first];
+        }
+    }
+    
+    else {
+        NSString *_first = [openSelectView getFirstComponent];
+        NSString *_second = [openSelectView getSecondComponent];
+        if(_first && _second) {
+            if([_second isEqualToString:@"Fever"] || [_second isEqualToString:@"Sweats"] || [_second isEqualToString:@"Chills"] || [_second isEqualToString:@"Dizziness"] || [_second isEqualToString:@"Vision Loss"] || [_second isEqualToString:@"Nausea"]) {
+                [openSelectView updateSentence:[NSString stringWithFormat:@"%@", _second]];
+            }
+            else {
+                [openSelectView updateSentence:[NSString stringWithFormat:@"%@\t%@", _first, _second]];
+            }
+        }
+        else {
+            [openSelectView updateSentence:_first];
+        }
     }
 }
 

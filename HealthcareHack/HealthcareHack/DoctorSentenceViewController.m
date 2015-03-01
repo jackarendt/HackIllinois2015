@@ -36,7 +36,7 @@
     [self.navigationController setNavigationBarHidden:YES animated:NO];
 
     self.sentenceLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 40, width, 50)];
-    self.sentenceLabel.text = @"Find A Doctor";
+    self.sentenceLabel.text = @"Find   A   Doctor";
     self.sentenceLabel.textAlignment = NSTextAlignmentCenter;
     self.sentenceLabel.textColor = [UIColor whiteColor];
     self.sentenceLabel.font = [UIFont fontWithName:kFontName size:45];
@@ -44,7 +44,7 @@
     
     self.sentenceView = [[SentenceView alloc] initWithFrame:CGRectMake(0, 120, width, height - 120)];
     self.sentenceView.delegate = self;
-    [self.sentenceView setPhrases:@[@"I want a", @"QUERY", @"Within", @"QUERY", @"Of", @"QUERY"]];
+    [self.sentenceView setPhrases:@[@"I    want    a", @"QUERY", @"Within", @"QUERY", @"Of", @"QUERY"]];
     [self.view addSubview:self.sentenceView];
     // Do any additional setup after loading the view.
 }
@@ -108,6 +108,10 @@
 }
 
 -(void)submitButtonPressedWithData:(NSDictionary *)sentence {
+    
+}
+
+-(void)submitRequestFinishedWithSuccess:(BOOL)success {
     
 }
 

@@ -110,7 +110,7 @@
         _second = secondTitle[row];
     }
     
-    [self.delegate pickerViewDidSelectComponentsString:_first second:_second];
+    [self.delegate pickerViewDidSelectComponentsString:_first second:_second onLoad:NO];
 }
 
 
@@ -124,7 +124,35 @@
     titles = firstComp;
     secondTitle = second;
     components = comp;
-    [self.delegate pickerViewDidSelectComponentsString:titles[0] second:nil];
+    _first = titles[0];
+    if(secondTitle) {
+        _second = secondTitle[0];
+    }
+    else {
+        _second = nil;
+    }
+    
+    [self.delegate pickerViewDidSelectComponentsString:_first second:_second onLoad:YES];
     [self.pickerView reloadAllComponents];
+}
+
+-(void)loadWithValues:(NSString *)first second:(NSString *)second {
+    
+    if (first) {
+        for (int i = 0; i < titles.count; i++) {
+            if([first isEqualToString:titles[i]]) {
+                [self.pickerView selectRow:i inComponent:0 animated:YES];
+            }
+        }
+    }
+    if(!second)
+        return;
+    for (int i = 0; i < secondTitle.count; i++) {
+        if([second isEqualToString:secondTitle[i]]) {
+            [self.pickerView selectRow:i inComponent:1 animated:YES];
+        }
+    }
+
+    
 }
 @end

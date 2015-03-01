@@ -10,11 +10,12 @@
 
 @protocol PickerViewDelegate <NSObject>
 -(void)pickerViewDidHitDoneButton:(id)pickerView;
--(void)pickerViewDidSelectComponentsString:(NSString *)first second:(NSString *)second;
+-(void)pickerViewDidSelectComponentsString:(NSString *)first second:(NSString *)second onLoad:(BOOL)onLoad;
 @end
 
 @interface PickerView : UIView <UIPickerViewDelegate, UIPickerViewDataSource>
 @property id<PickerViewDelegate> delegate;
 
 -(void)setComponentValues:(NSArray *)firstComp secondComp:(NSArray *)second components:(NSInteger)comp;
+-(void)loadWithValues:(NSString *)first second:(NSString *)second;
 @end
