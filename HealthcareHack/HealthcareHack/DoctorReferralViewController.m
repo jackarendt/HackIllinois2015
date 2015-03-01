@@ -59,7 +59,7 @@
 -(void)updateDoctorLabel {
     self.recommend = [[UILabel alloc] initWithFrame:CGRectMake(10, 120, width - 20, 45)];
     self.recommend.font = [UIFont fontWithName:kFontName size:30];
-    self.recommend.textColor = [UIColor colorWithRed:0.8 green: 0.8 blue:0.8 alpha:1];
+    self.recommend.textColor = [HHUtility getGrayColor];
     self.recommend.textAlignment = NSTextAlignmentCenter;
     [self.view addSubview:self.recommend];
     
@@ -77,7 +77,7 @@
     
     self.descriptionLabel = [[UILabel alloc] initWithFrame:CGRectMake(10, 240, width - 20, 50)];
     self.descriptionLabel.font = [UIFont fontWithName:kFontName size:20];
-    self.descriptionLabel.textColor = [UIColor colorWithRed:0.8 green: 0.8 blue:0.8 alpha:1];
+    self.descriptionLabel.textColor = [HHUtility getGrayColor];
     self.descriptionLabel.textAlignment = NSTextAlignmentCenter;
     self.descriptionLabel.text = _user.doctorDescription;
     [self.view addSubview:self.descriptionLabel];
@@ -86,41 +86,37 @@
     self.doctor.text = _user.doctorRecommendation;
     
     if([_user.doctorRecommendation isEqualToString:kDoctorSelfCare]) {
-        self.recommend.text = @"We Recommend You Use";
+        self.recommend.text = @"We   Recommend   You   Use";
     }
     else if([_user.doctorRecommendation isEqualToString:kDoctorHospital]){
-        self.recommend.text = @"We Recommend You Go to a";
+        self.recommend.text = @"We   Recommend   You   Go   to   a";
     }
     else if([_user.doctorRecommendation isEqualToString:kDoctorImmediateCare]){
-        self.recommend.text = @"We Recommend You Go to an";
+        self.recommend.text = @"We   Recommend   You   Go   to   an";
     }
-    else if([_user.doctorRecommendation isEqualToString:kDoctorOptometrist] || [_user.doctorRecommendation isEqualToString:kDoctorUrologist] || [_user.doctorRecommendation isEqualToString:kDoctorAnesthesiologist]) {
-        self.recommend.text = @"We Recommend You See an";
+    else if([_user.doctorRecommendation isEqualToString:kDoctorOptometrist] || [_user.doctorRecommendation isEqualToString:kDoctorUrologist] || [_user.doctorRecommendation isEqualToString:kDoctorAnesthesiologist] || [_user.doctorRecommendation isEqualToString:kDoctorENT]) {
+        self.recommend.text = @"We   Recommend   You   See   an";
     }
     else if([_user.doctorRecommendation isEqualToString:kDoctorGeneralPracticioner]) {
-        self.recommend.text = @"We Recommend You See a";
-        self.doctor.text = @"Family Doctor";
-    }
-    else if ([_user.doctorRecommendation isEqualToString:kDoctorENT]) {
-        self.recommend.text = @"We Recommend You See an";
-        self.doctor.text = @"E.N.T. Doctor";
+        self.recommend.text = @"We   Recommend   You   See   a";
+        self.doctor.text = @"Family   Doctor";
     }
     else {
-        self.recommend.text = @"We Recommend You See a";
+        self.recommend.text = @"We   Recommend   You   See   a";
     }
     
-    UILabel *tipsLabel = [[UILabel alloc] initWithFrame:CGRectMake(15, 440, width - 30, 28)];
+    UILabel *tipsLabel = [[UILabel alloc] initWithFrame:CGRectMake(15, height - 227, width - 30, 28)];
     tipsLabel.text = @"Doctor's tips";
     tipsLabel.font = [UIFont fontWithName:kFontName size:21.0];
     tipsLabel.textColor = [UIColor whiteColor];
     tipsLabel.textAlignment = NSTextAlignmentCenter;
     [self.view addSubview:tipsLabel];
     
-    UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 468, width, 2)];
-    view.backgroundColor = [UIColor colorWithRed:0.8 green: 0.8 blue:0.8 alpha:1];
+    UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, height - 199, width, 2)];
+    view.backgroundColor = [HHUtility getGrayColor];
     [self.view addSubview:view];
     
-    self.tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 470, width, height - 519) style:UITableViewStylePlain];
+    self.tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, height - 197, width, height - 519) style:UITableViewStylePlain];
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
     [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"cell"];

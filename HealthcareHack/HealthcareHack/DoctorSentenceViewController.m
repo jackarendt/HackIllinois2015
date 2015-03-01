@@ -130,6 +130,7 @@
         else {
             manager = [[DoctorManager alloc] initWithJSONFile:response];
             dispatch_async(dispatch_get_main_queue(), ^{
+                [self.sentenceView clear];
                 [self performSegueWithIdentifier:@"toDoctors" sender:self];
             });
         }
@@ -141,6 +142,9 @@
     
 }
 
+-(void)addNewSymptomPressed:(id)sentenceView {
+    
+}
 
 #pragma mark - Navigation
 

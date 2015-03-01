@@ -21,6 +21,7 @@
 -(void)sentenceViewPickerDidBecomeActive:(BOOL)active;
 -(void)submitButtonPressedWithData:(NSDictionary *)sentence;
 -(void)submitRequestFinishedWithSuccess:(BOOL)success;
+-(void)addNewSymptomPressed:(id)sentenceView;
 
 @end
 
@@ -28,6 +29,7 @@
 
 -(void)setPhrases:(NSArray *)phrases;
 -(NSArray *)getKeyWords;
+-(void)clear;
 
 @property id<SentenceViewDelegate> delegate;
 

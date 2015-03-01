@@ -49,7 +49,7 @@
 }
 
 -(void)createView {
-    textColor = [UIColor colorWithRed:0.8 green: 0.8 blue:0.8 alpha:1];
+    textColor = [HHUtility getGrayColor];
     int i = 0;
     for(NSString *_phrase in _phrases) {
         [self createLine:_phrase index:i];
@@ -195,7 +195,22 @@
 }
 
 -(void)addSymptoms{
-    
+    if(self.delegate) {
+        [self.delegate addNewSymptomPressed:self];
+        if(![self.delegate sentenceViewCanHaveAddSymptoms:self]) {
+            [addMoreSymptoms setHidden:YES];
+        }
+        else {
+            [addMoreSymptoms setHidden:NO];
+        }
+    }
+    [self clear];
+}
+
+-(void)clear {
+    for(SelectView *select in selectViews) {
+        [select updateSentence:@""];
+    }
 }
 
 -(void)submit {
@@ -232,6 +247,7 @@
 }
 
 -(void)pickerViewDidHitDoneButton:(id)pickerView {
+    openSelectView = nil;
     [self.delegate sentenceViewPickerDidBecomeActive:NO];
     [UIView animateKeyframesWithDuration:0.3 delay:0.05 options:UIViewKeyframeAnimationOptionCalculationModeCubic animations:^{
         picker.frame = CGRectMake(0, height, width, kPickerHeight);
@@ -246,7 +262,7 @@
         [openSelectView setComponents:first second:second];
     
         if(first && second) {
-            if([second isEqualToString:@"Fever"] || [second isEqualToString:@"Sweats"] || [second isEqualToString:@"Chills"] || [second isEqualToString:@"Dizziness"] || [second isEqualToString:@"Vision Loss"] || [second isEqualToString:@"Nausea"]) {
+            if([second isEqualToString:kMiscFever] || [second isEqualToString:kMiscSweats] || [second isEqualToString:kMiscChills] || [second isEqualToString:kMiscDizziness] || [second isEqualToString:kMiscVisionLoss] || [second isEqualToString:kMiscNausea]) {
                 [openSelectView updateSentence:[NSString stringWithFormat:@"%@", second]];
             }
             else {
@@ -262,11 +278,11 @@
         NSString *_first = [openSelectView getFirstComponent];
         NSString *_second = [openSelectView getSecondComponent];
         if(_first && _second) {
-            if([_second isEqualToString:@"Fever"] || [_second isEqualToString:@"Sweats"] || [_second isEqualToString:@"Chills"] || [_second isEqualToString:@"Dizziness"] || [_second isEqualToString:@"Vision Loss"] || [_second isEqualToString:@"Nausea"]) {
+            if([_second isEqualToString:kMiscFever] || [_second isEqualToString:kMiscSweats] || [_second isEqualToString:kMiscChills] || [_second isEqualToString:kMiscDizziness] || [_second isEqualToString:kMiscVisionLoss] || [_second isEqualToString:kMiscNausea]) {
                 [openSelectView updateSentence:[NSString stringWithFormat:@"%@", _second]];
             }
             else {
-                [openSelectView updateSentence:[NSString stringWithFormat:@"%@\t%@", _first, _second]];
+                [openSelectView updateSentence:[NSString stringWithFormat:@"%@   %@", _first, _second]];
             }
         }
         else {

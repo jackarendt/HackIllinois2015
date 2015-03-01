@@ -81,7 +81,7 @@
     
     UILabel *detailTextLabel = [[UILabel alloc] initWithFrame:CGRectMake(width - 150, 0, 120, cell.bounds.size.height)];
     detailTextLabel.text = values[indexPath.row];
-    detailTextLabel.textColor = [UIColor colorWithRed:0.8 green: 0.8 blue:0.8 alpha:1];
+    detailTextLabel.textColor = [HHUtility getGrayColor];
     detailTextLabel.font = [UIFont fontWithName:kFontName size:25.0];
     detailTextLabel.textAlignment = NSTextAlignmentRight;
     [cell addSubview:detailTextLabel];

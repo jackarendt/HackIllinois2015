@@ -35,6 +35,11 @@
     return [UIColor colorWithRed:0.8117 green:0 blue:0.0588 alpha:1];
 }
 
++ (UIColor *)getGrayColor {
+    CGFloat scale = 0.7;
+    return [UIColor colorWithRed:scale green:scale blue:scale alpha:1];
+}
+
 + (UIView *)getGradientForHeight:(CGFloat)height width:(CGFloat)width {
     UIView* view = [[UIView alloc] initWithFrame:CGRectMake(0.0f, 0.0f, width, height)];
     CAGradientLayer *gradient = [CAGradientLayer layer];
@@ -199,36 +204,36 @@ NSString *const kAnatomyThroat = @"Throat";
 NSString *const kAnatomyNeck = @"Neck";
 NSString *const kAnatomyChest = @"Chest";
 NSString *const kAnatomyStomach = @"Stomach";
-NSString *const kAnatomyUpperBack = @"Upper Back";
-NSString *const kAnatomyLowerBack = @"Lower Back";
+NSString *const kAnatomyUpperBack = @"Upper   Back";
+NSString *const kAnatomyLowerBack = @"Lower   Back";
 NSString *const kAnatomyPelvis = @"Pelvis";
 NSString *const kAnatomyGenitals = @"Genitals";
 NSString *const kAnatomyButt = @"Butt";
 NSString *const kAnatomyBowel = @"Bowel";
 NSString *const kAnatomyShoulder = @"Shoulder";
-NSString *const kAnatomyUpperArm = @"Upper Arm";
-NSString *const kAnatomyLowerArm = @"Lower Arm";
+NSString *const kAnatomyUpperArm = @"Upper   Arm";
+NSString *const kAnatomyLowerArm = @"Lower   Arm";
 NSString *const kAnatomyElbow = @"Elbow";
 NSString *const kAnatomyHand = @"Hand";
 NSString *const kAnatomyWrist = @"Wrist";
 NSString *const kAnatomyFinger = @"Finger";
-NSString *const kAnatomyUpperLeg = @"Upper Leg";
-NSString *const kAnatomyLowerLeg = @"Lower Leg";
+NSString *const kAnatomyUpperLeg = @"Upper   Leg";
+NSString *const kAnatomyLowerLeg = @"Lower   Leg";
 NSString *const kAnatomyKnee = @"Knee";
 NSString *const kAnatomyAnkle =  @"Ankle";
 NSString *const kAnatomyFoot = @"Foot";
 NSString *const kAnatomyToe = @"Toe";
 
-NSString *const kDurationCoupleOfMinutes = @"Couple Of Minutes";
+NSString *const kDurationCoupleOfMinutes = @"Couple   Of    Minutes";
 NSString *const kDurationOneHour = @"One Hour";
-NSString *const kDurationMultipleHours = @"Multiple Hours";
-NSString *const kDurationOneDay = @"One Day";
-NSString *const kDurationMultipleDays = @"Multiple Days";
+NSString *const kDurationMultipleHours = @"Multiple   Hours";
+NSString *const kDurationOneDay = @"One   Day";
+NSString *const kDurationMultipleDays = @"Multiple   Days";
 NSString *const kDurationOneWeek = @"One Week";
-NSString *const kDurationMultipleWeeks = @"Mutliple Weeks";
+NSString *const kDurationMultipleWeeks = @"Mutliple   Weeks";
 NSString *const kDurationMonths = @"Months";
-NSString *const kDurationOneYear = @"One Year";
-NSString *const kDurationMultipleYears = @"Multiple Years";
+NSString *const kDurationOneYear = @"One   Year";
+NSString *const kDurationMultipleYears = @"Multiple   Years";
 
 NSString *const kSeverityMild = @"Mild";
 NSString *const kSeverityMinor = @"Minor";
@@ -240,7 +245,7 @@ NSString *const kMiscFever = @"Fever";
 NSString *const kMiscSweats = @"Sweats";
 NSString *const kMiscChills = @"Chills";
 NSString *const kMiscDizziness = @"Dizziness";
-NSString *const kMiscVisionLoss = @"Vision Loss";
+NSString *const kMiscVisionLoss = @"Vision   Loss";
 NSString *const kMiscNausea = @"Nausea";
 
 NSString *const kSymptomBurn = @"Burn";
@@ -250,13 +255,13 @@ NSString *const kSymptomNumbness = @"Numbness";
 NSString *const kSymptomRashItch = @"Rash/Itch";
 NSString *const kSymptomSwelling = @"Swelling";
 NSString *const kSymptomDislocation = @"Dislocation";
-NSString *const kSymptomBreak = @"Break";
+NSString *const kSymptomBreak = @"Fracture";
 NSString *const kSymptomPain = @"Pain";
 NSString *const kSymptomOther = @"Other";
 
-NSString *const kDoctorGeneralPracticioner = @"Family Medicine";
+NSString *const kDoctorGeneralPracticioner = @"Family   Medicine";
 NSString *const kDoctorHospital = @"Hospital";
-NSString *const kDoctorImmediateCare = @"Immediate Care";
+NSString *const kDoctorImmediateCare = @"Immediate   Care";
 NSString *const kDoctorOptometrist = @"Optometrist";
 NSString *const kDoctorDentist = @"Dentist";
 NSString *const kDoctorDermatologist = @"Dermatologist";
@@ -269,14 +274,14 @@ NSString *const kDoctorUrologist = @"Urologist";
 NSString *const kDoctorPodiatrist = @"Podiatrist";
 NSString *const kDoctorAnesthesiologist = @"Anesthesiologist";
 NSString *const kDoctorRadiologist = @"Radiologist";
-NSString *const kDoctorSelfCare = @"Self Care";
-NSString *const kDoctorENT = @"Ear, Nose and Throat";
+NSString *const kDoctorSelfCare = @"Self   Care";
+NSString *const kDoctorENT = @"E.N.T.";
 
-NSString *const kDistance5Miles = @"5 Miles";
-NSString *const kDistance10Miles = @"10 Miles";
-NSString *const kDistance25Miles  = @"25 Miles";
-NSString *const kDistance50Miles = @"50 Miles";
-NSString *const kDistance100Miles = @"100 Miles";
+NSString *const kDistance5Miles = @"5   Miles";
+NSString *const kDistance10Miles = @"10   Miles";
+NSString *const kDistance25Miles  = @"25   Miles";
+NSString *const kDistance50Miles = @"50   Miles";
+NSString *const kDistance100Miles = @"100   Miles";
 
 NSString *const kLocationMe = @"Me";
 

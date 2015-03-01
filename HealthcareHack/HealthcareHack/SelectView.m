@@ -79,7 +79,13 @@
 
 -(void)updateSentence:(NSString *)sentence {
     self.resultLabel.text = sentence;
-    [self.bottomView setHidden:YES];
+    if(sentence.length > 0)
+        [self.bottomView setHidden:YES];
+    else {
+        [self.bottomView setHidden:NO];
+        _first = nil;
+        _second = nil;
+    }
 }
 
 -(void)setComponents:(NSString *)first second:(NSString *)second {

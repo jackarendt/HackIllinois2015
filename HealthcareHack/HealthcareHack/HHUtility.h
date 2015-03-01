@@ -17,6 +17,7 @@
 + (UIColor *)getGreenColor;
 + (UIColor *)getLightGreenColor;
 + (UIColor *)getRedColor;
++ (UIColor *)getGrayColor;
 
 + (UIView *)getGradientForHeight:(CGFloat)height width:(CGFloat)width;
 

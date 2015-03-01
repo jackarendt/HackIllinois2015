@@ -81,20 +81,38 @@
     return secondTitle.count;
 }
 
-- (NSAttributedString *)pickerView:(UIPickerView *)pickerView attributedTitleForRow:(NSInteger)row forComponent:(NSInteger)component
-{
+//- (NSAttributedString *)pickerView:(UIPickerView *)pickerView attributedTitleForRow:(NSInteger)row forComponent:(NSInteger)component
+//{
+//    NSString *title;
+//    if(component == 0)
+//        title = titles[row];
+//    else {
+//        title = secondTitle[row];
+//    }
+//    UIFont *font = [UIFont fontWithName:kFontName size:21.0];
+//    NSDictionary *attrsDictionary = @{NSFontAttributeName : font, NSForegroundColorAttributeName : [UIColor whiteColor]};
+//    NSAttributedString *attString = [[NSAttributedString alloc] initWithString:title attributes:attrsDictionary];
+//    
+//    return attString;
+//    
+//}
+
+-(UIView *)pickerView:(UIPickerView *)pickerView viewForRow:(NSInteger)row forComponent:(NSInteger)component reusingView:(UIView *)view {
+    UIView *v  = [[UIView alloc] initWithFrame:CGRectMake(0, 0, width, 40)];
+    UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, width, 40)];
     NSString *title;
-    if(component == 0)
-        title = titles[row];
-    else {
-        title = secondTitle[row];
-    }
-    UIFont *font = [UIFont fontWithName:kFontName size:21.0];
-    NSDictionary *attrsDictionary = @{NSFontAttributeName : font, NSForegroundColorAttributeName : [UIColor whiteColor]};
-    NSAttributedString *attString = [[NSAttributedString alloc] initWithString:title attributes:attrsDictionary];
+        if(component == 0)
+            title = titles[row];
+        else {
+            title = secondTitle[row];
+        }
+    label.text = title;
+    label.font = [UIFont fontWithName:kFontName size:21.0];
+    label.textColor = [UIColor whiteColor];
+    label.textAlignment = NSTextAlignmentCenter;
+    [v addSubview:label];
     
-    return attString;
-    
+    return v;
 }
 
 -(CGFloat)pickerView:(UIPickerView *)pickerView rowHeightForComponent:(NSInteger)component {

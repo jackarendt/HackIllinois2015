@@ -16,6 +16,8 @@
     CGFloat height;
     CGFloat width;
     HHUser *_user;
+    NSMutableString *codeString;
+    NSInteger _index;
 }
 @property (nonatomic, strong) UILabel *sentenceLabel;
 @property (nonatomic, strong) SentenceView *sentenceView;
@@ -25,6 +27,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    codeString = [[NSMutableString alloc] init];
     height = self.view.bounds.size.height;
     width = self.view.bounds.size.width;
     self.view = [HHUtility getGradientForHeight:height width:width];
@@ -46,7 +49,7 @@
     
     self.sentenceView = [[SentenceView alloc] initWithFrame:CGRectMake(0, 120, width, height - 120)];
     self.sentenceView.delegate = self;
-    [self.sentenceView setPhrases:@[@"I   have", @"QUERY", @"For", @"QUERY", @"With", @"QUERY", @"Intentsity."]];
+    [self.sentenceView setPhrases:@[@"I   have", @"QUERY", @"For", @"QUERY", @"With", @"QUERY", @"Discomfort."]];
     [self.view addSubview:self.sentenceView];
     
     
@@ -87,6 +90,8 @@
 }
 
 -(BOOL)sentenceViewCanHaveAddSymptoms:(id)sentenceView {
+    if(_index < 10)
+        return YES;
     return NO;
 }
 
@@ -123,18 +128,24 @@
     if(keywords.count != 4) {
         return;
     }
-    NSString *code = [HHUtility getCodeForAnatomy:keywords[0] symptom:keywords[1] duration:keywords[2] severity:keywords[3]];
+    NSLog(@"%@", [HHUtility getCodeForAnatomy:keywords[0] symptom:keywords[1] duration:keywords[2] severity:keywords[3]]);
+    [codeString insertString:[HHUtility getCodeForAnatomy:keywords[0] symptom:keywords[1] duration:keywords[2] severity:keywords[3]] atIndex:_index];
+    _index+=5;
     NSMutableDictionary *dict = [[NSMutableDictionary alloc] init];
-    dict[@"imo"] = [NSDictionary dictionaryWithObject:code forKey:@"code"];
+    dict[@"imo"] = @{@"code" : codeString
+                     };
     [_user put:dict completionHandler:^(NSError *err, NSDictionary *jsonDict){
         if(err) {
             [[[UIAlertView alloc] initWithTitle:@"Error" message:@"Something Went Wrong" delegate:nil cancelButtonTitle:@"Dismiss" otherButtonTitles:nil] show];
         }
         else {
+            [codeString deleteCharactersInRange:NSMakeRange(0, codeString.length)];
+            _index = 0;
             _user.doctorRecommendation = jsonDict[@"doctorType"];
             _user.doctorDescription = jsonDict[@"description"];
             _user.doctorTips = @[jsonDict[@"tip1"], jsonDict[@"tip2"], jsonDict[@"tip3"]];
             dispatch_async(dispatch_get_main_queue(), ^{
+                [self.sentenceView clear];
                 [self performSegueWithIdentifier:@"toDoctorReferral" sender:self];
             });
         }
@@ -146,5 +157,18 @@
 }
 
 -(void)submitRequestFinishedWithSuccess:(BOOL)success {
+}
+
+-(void)addNewSymptomPressed:(id)sentenceView {
+    if(_index >= 10) {
+        [[[UIAlertView alloc] initWithTitle:@"Warning" message:@"You can only submit a max of 3 Symptoms" delegate:nil cancelButtonTitle:@"Dismiss" otherButtonTitles:nil] show];
+        return;
+    }
+    NSArray *keywords = [self.sentenceView getKeyWords];
+    if(keywords.count != 4) {
+        return;
+    }
+    [codeString insertString:[HHUtility getCodeForAnatomy:keywords[0] symptom:keywords[1] duration:keywords[2] severity:keywords[3]] atIndex:_index];
+    _index+=5;
 }
 @end
