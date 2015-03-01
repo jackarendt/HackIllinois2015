@@ -68,7 +68,7 @@
 -(NSArray *)sentenceView:(id)sentenceView didRequestItemsForIndex:(NSInteger)index {
     switch (index) {
         case 1:
-            return @[@"Fever", @"Sweats", @"Chills", @"Dizziness", @"Vision Loss", @"Front Of Head", @"Back Of Head", @"Eye", @"Ear", @"Nose", @"Mouth", @"Throat", @"Neck", @"Chest", @"Upper Back", @"Lower Back", @"Pelvis", @"Butt", @"Bowel", @"Shoulder", @"Upper Arm", @"Lower Arm", @"Elbow", @"Hand", @"Wrist", @"Finger", @"Upper Leg", @"Lower Leg", @"Knee", @"Ankle", @"Foot", @"Toe"];
+            return @[@"General", @"Front Of Head", @"Back Of Head", @"Eye", @"Ear", @"Nose", @"Mouth", @"Throat", @"Neck", @"Chest", @"Upper Back", @"Lower Back", @"Pelvis", @"Butt", @"Bowel", @"Shoulder", @"Upper Arm", @"Lower Arm", @"Elbow", @"Hand", @"Wrist", @"Finger", @"Upper Leg", @"Lower Leg", @"Knee", @"Ankle", @"Foot", @"Toe"];
             break;
         case 3:
             return @[@"Minutes", @"One Hour", @"Multiple Hours", @"One Day", @"Multiple Days", @"One Week", @"Multiple Weeks", @"Months", @"One Year", @"Multiple Years"];
@@ -102,7 +102,7 @@
 
 -(NSArray *)sentenceView:(id)sentenceView didRequestSecondItemsForIndex:(NSInteger)index {
     if(index == 1) {
-        return @[@"Burn", @"Bleeding", @"Spasms", @"Numbness", @"Rash/Itch", @"Swelling", @"Dislocation", @"Break", @"Pain", @"Other"];
+        return @[@"Fever", @"Sweats", @"Chills", @"Dizziness", @"Vision Loss", @"Nausea" @"Burn", @"Bleeding", @"Spasms", @"Numbness", @"Rash/Itch", @"Swelling", @"Dislocation", @"Break", @"Pain", @"Other"];
     }
     return nil;
 }

@@ -15,6 +15,7 @@
 }
 @property (nonatomic, strong) UIView *bottomView;
 @property (nonatomic, strong) UIButton *button;
+@property (nonatomic, strong) UILabel *resultLabel;
 @end
 
 @implementation SelectView
@@ -53,10 +54,15 @@
         layer.fillRule = kCAFillRuleEvenOdd;
         [self.layer addSublayer:layer];
         
-        self.button = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, width, height)];
+        
+        self.resultLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, width - 30, height)];
+        self.resultLabel.textAlignment = NSTextAlignmentLeft;
+        self.resultLabel.textColor = [UIColor whiteColor];
+        self.resultLabel.font = [UIFont fontWithName:kFontName size:30];
+        [self addSubview:self.resultLabel];
+        
+        self.button = [[UIButton alloc] initWithFrame:CGRectMake(10, 0, width-20, height)];
         [self.button addTarget:self action:@selector(buttonTapped) forControlEvents:UIControlEventTouchUpInside];
-        self.button.titleLabel.font = [UIFont fontWithName:kFontName size:30];
-        [self.button setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
         [self addSubview:self.button];
     }
     return self;
@@ -70,7 +76,7 @@
 }
 
 -(void)updateSentence:(NSString *)sentence {
-    [self.button setTitle:sentence forState:UIControlStateNormal];
+    self.resultLabel.text = sentence;
     [self.bottomView setHidden:YES];
 }
 

@@ -44,7 +44,7 @@
     
     self.sentenceView = [[SentenceView alloc] initWithFrame:CGRectMake(0, 120, width, height - 120)];
     self.sentenceView.delegate = self;
-    [self.sentenceView setPhrases:@[@"I want a doctor", @"For My", @"QUERY", @"Within", @"QUERY", @"Of", @"QUERY"]];
+    [self.sentenceView setPhrases:@[@"I want a", @"QUERY", @"Within", @"QUERY", @"Of", @"QUERY"]];
     [self.view addSubview:self.sentenceView];
     // Do any additional setup after loading the view.
 }
@@ -70,7 +70,19 @@
 }
 
 -(NSArray *)sentenceView:(id)sentenceView didRequestItemsForIndex:(NSInteger)index {
-    return nil;
+    switch (index) {
+        case 1:
+            return @[@"General Practicioner", @"Hospital", @"Immediate Care", @"Optometrist", @"Dentist", @"Dermatologist", @"Pediatrician"];
+            break;
+        case 3:
+            return @[@"5 Miles", @"10 Miles", @"25 Miles", @"50 Miles", @"100 Miles"];
+            break;
+        case 5:
+            return @[@"Me"];
+        default:
+            return nil;
+            break;
+    }
 }
 
 -(NSString *)titleForSubmitButtonForSentenceView:(id)sentenceView {

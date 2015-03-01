@@ -24,7 +24,7 @@
     UIButton *addMoreSymptoms;
     UIButton *submit;
     UIColor *textColor;
-    
+    SelectView *openSelectView;
     PickerView *picker;
 }
 
@@ -202,6 +202,7 @@
 #pragma selectView/PickerView Delegate methods
 -(void)selectViewTapped:(id)selectView {
     NSInteger tag = ((SelectView *)selectView).tag;
+    openSelectView = selectView;
     if(self.delegate) {
         NSArray *first = [self.delegate sentenceView:self didRequestItemsForIndex:tag];
         NSArray *second;
@@ -228,6 +229,12 @@
         
     }];
 
+}
+
+-(void)pickerViewDidSelectComponentsString:(NSString *)first second:(NSString *)second {
+    if([first isEqualToString:@"General"]){
+        
+    }
 }
 
 @end

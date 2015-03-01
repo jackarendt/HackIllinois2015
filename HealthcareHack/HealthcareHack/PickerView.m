@@ -16,6 +16,9 @@
     NSArray *titles;
     NSArray *secondTitle;
     NSInteger components;
+    
+    NSString *_first;
+    NSString *_second;
 }
 @property (nonatomic, strong) UIPickerView *pickerView;
 @end
@@ -98,6 +101,18 @@
     return 40;
 }
 
+-(void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component {
+    if(component == 0) {
+        _first = titles[row];
+    }
+    
+    else {
+        _second = secondTitle[row];
+    }
+    
+    [self.delegate pickerViewDidSelectComponentsString:_first second:_second];
+}
+
 
 #pragma mark - public functions
 -(void)setComponentValues:(NSArray *)firstComp secondComp:(NSArray *)second components:(NSInteger)comp {
@@ -105,9 +120,11 @@
     if([self.pickerView numberOfComponents] == 2) {
         [self.pickerView selectRow:0 inComponent:1 animated:YES];
     }
+    
     titles = firstComp;
     secondTitle = second;
     components = comp;
+    [self.delegate pickerViewDidSelectComponentsString:titles[0] second:nil];
     [self.pickerView reloadAllComponents];
 }
 @end
