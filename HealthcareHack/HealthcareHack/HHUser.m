@@ -174,6 +174,48 @@
     }
 }
 
+-(void)get:(void (^)(NSError *, NSArray *))completionHandler{
+    NSURLSession *session = [NSURLSession sharedSession];
+    NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:@"https://healthhoodlums.azure-mobile.net/api/IMOFactual"]];
+    [[session dataTaskWithRequest:request completionHandler:^(NSData *data, NSURLResponse *response, NSError *err) {
+        if(err) {
+            completionHandler(err, nil);
+        }
+        NSError *error;
+        NSArray *jsonArray = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:&error];
+        if(error) {
+            completionHandler(error, nil);
+        }
+        
+        else {
+            completionHandler(nil, jsonArray);
+        }
+    }] resume];
+    
+}
+
+-(void)put:(NSDictionary *)payloadDictionary completionHandler:(void (^)(NSError *))completionHandler {
+    NSError *error;
+    NSData *data = [NSJSONSerialization dataWithJSONObject:payloadDictionary options:NSJSONWritingPrettyPrinted error:&error];
+    if(error) {
+        completionHandler(error);
+        return;
+    }
+    
+    NSURLSession *session = [NSURLSession sharedSession];
+    NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:[NSURL URLWithString:@"https://healthhoodlums.azure-mobile.net/api/IMOFactual"]];
+    [request setHTTPMethod:@"POST"];
+    [request setHTTPBody:data];
+    
+    [[session dataTaskWithRequest:request completionHandler:^(NSData *data, NSURLResponse *response, NSError *err) {
+        NSError *error;
+        NSArray *jsonArray = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:&error];
+        NSLog(@"%@", jsonArray);
+        completionHandler(err);
+    }] resume];
+}
+
+
 
 
 @end

@@ -107,6 +107,10 @@
     }
 }
 
+-(void)submitButtonPressedWithData:(NSDictionary *)sentence {
+    
+}
+
 
 /*
 #pragma mark - Navigation

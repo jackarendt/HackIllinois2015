@@ -19,6 +19,7 @@
 -(BOOL)needsSecondTypeForIndex:(NSInteger)index;
 -(NSArray *)sentenceView:(id)sentenceView didRequestSecondItemsForIndex:(NSInteger)index;
 -(void)sentenceViewPickerDidBecomeActive:(BOOL)active;
+-(void)submitButtonPressedWithData:(NSDictionary *)sentence;
 
 @end
 

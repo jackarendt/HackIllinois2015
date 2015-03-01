@@ -102,7 +102,7 @@
 
 -(NSArray *)sentenceView:(id)sentenceView didRequestSecondItemsForIndex:(NSInteger)index {
     if(index == 1) {
-        return @[@"Fever", @"Sweats", @"Chills", @"Dizziness", @"Vision Loss", @"Nausea" @"Burn", @"Bleeding", @"Spasms", @"Numbness", @"Rash/Itch", @"Swelling", @"Dislocation", @"Break", @"Pain", @"Other"];
+        return @[@"Fever", @"Sweats", @"Chills", @"Dizziness", @"Vision Loss", @"Nausea", @"Burn", @"Bleeding", @"Spasms", @"Numbness", @"Rash/Itch", @"Swelling", @"Dislocation", @"Break", @"Pain", @"Other"];
     }
     return nil;
 }
@@ -115,5 +115,20 @@
     else {
         self.tabBarController.tabBar.hidden = NO;
     }
+}
+
+-(void)submitButtonPressedWithData:(NSDictionary *)sentence {
+    [_user get:^(NSError *err, NSArray *json) {
+        NSLog(@"%@", json);
+    }];
+    
+    [_user put:@{@"key" : @"Value1", @"key2" : @"value2"} completionHandler:^(NSError *err){
+        if(err) {
+            NSLog(@"UGH");
+        }
+        else {
+            NSLog(@"YAY");
+        }
+    }];
 }
 @end

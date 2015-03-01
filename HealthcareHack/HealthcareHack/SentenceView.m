@@ -196,7 +196,9 @@
 }
 
 -(void)submit {
-    
+    if(self.delegate) {
+        [self.delegate submitButtonPressedWithData:nil];
+    }
 }
 
 #pragma selectView/PickerView Delegate methods
@@ -236,5 +238,6 @@
         
     }
 }
+
 
 @end
