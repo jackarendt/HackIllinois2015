@@ -26,6 +26,7 @@
     UIColor *textColor;
     SelectView *openSelectView;
     PickerView *picker;
+    NSMutableArray *selectViews;
 }
 
 @end
@@ -37,6 +38,7 @@
     if(self) {
         width = self.bounds.size.width;
         height = self.bounds.size.height;
+        selectViews = [[NSMutableArray alloc] init];
     }
     return self;
 }
@@ -145,6 +147,7 @@
         SelectView *select = [[SelectView alloc] initWithFrame:CGRectMake(10, labelHeight, width - strikeWidth - 20, kFontHeight)];
         select.tag = index;
         select.delegate = self;
+        [selectViews addObject:select];
         [self addSubview:select];
     }
     
@@ -197,6 +200,7 @@
 
 -(void)submit {
     if(self.delegate) {
+        openSelectView = nil;
         [self.delegate submitButtonPressedWithData:nil];
     }
 }
@@ -269,6 +273,20 @@
             [openSelectView updateSentence:_first];
         }
     }
+}
+
+-(NSArray *)getKeyWords {
+    NSMutableArray *arr = [[NSMutableArray alloc] init];
+    for(SelectView *sv in selectViews) {
+        if([sv getFirstComponent]) {
+            [arr addObject:[sv getFirstComponent]];
+        }
+        if([sv getSecondComponent]) {
+            [arr addObject:[sv getSecondComponent]];
+        }
+    }
+    NSLog(@"%@", arr);
+    return arr;
 }
 
 

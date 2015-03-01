@@ -58,7 +58,9 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" id="Ayp-fH-ZlG"/>
+                    <navigationItem key="navigationItem" id="Ayp-fH-ZlG">
+                        <barButtonItem key="backBarButtonItem" title=" " id="EpB-qF-QA4"/>
+                    </navigationItem>
                     <connections>
                         <segue destination="9RP-0m-fEx" kind="show" identifier="toDoctorReferral" id="QrA-Xk-9jd"/>
                     </connections>

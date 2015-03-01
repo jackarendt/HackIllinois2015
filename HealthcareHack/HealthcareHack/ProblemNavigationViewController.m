@@ -20,6 +20,13 @@
     [self.navigationBar setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:
                                                 [UIFont fontWithName:kFontName size:21],
                                                 NSFontAttributeName, nil]];
+    
+//    [self.navigationBar setBackgroundImage:[UIImage new]
+//                             forBarMetrics:UIBarMetricsDefault];
+//    self.navigationBar.shadowImage = [UIImage new];
+//    self.navigationBar.translucent = YES;
+//    
+//    self.navigationBar.tintColor = [UIColor whiteColor];
     // Do any additional setup after loading the view.
 }
 

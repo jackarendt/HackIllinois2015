@@ -25,5 +25,6 @@
 @property (nonatomic, strong) NSNumber *height;
 @property (nonatomic, strong) NSNumber *weight;
 @property (nonatomic, strong) CLLocation *location;
+@property (nonatomic, strong) NSString *doctorRecommendation;
 
 @end

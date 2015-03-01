@@ -72,13 +72,13 @@
 -(NSArray *)sentenceView:(id)sentenceView didRequestItemsForIndex:(NSInteger)index {
     switch (index) {
         case 1:
-            return @[@"General Practicioner", @"Hospital", @"Immediate Care", @"Optometrist", @"Dentist", @"Dermatologist", @"Pediatrician"];
+            return @[kDoctorGeneralPracticioner, kDoctorHospital, kDoctorImmediateCare, kDoctorOptometrist, kDoctorDentist, kDoctorDermatologist, kDoctorPediatrician, kDoctorCardiologist, kDoctorNeurologist, kDoctorGynecologist, kDoctorPsychologist, kDoctorUrologist, kDoctorPodiatrist, kDoctorAnesthesiologist, kDoctorRadiologist];
             break;
         case 3:
-            return @[@"5 Miles", @"10 Miles", @"25 Miles", @"50 Miles", @"100 Miles"];
+            return @[kDistance5Miles, kDistance10Miles, kDistance25Miles, kDistance50Miles, kDistance100Miles];
             break;
         case 5:
-            return @[@"Me"];
+            return @[kLocationMe];
         default:
             return nil;
             break;
@@ -108,6 +108,8 @@
 }
 
 -(void)submitButtonPressedWithData:(NSDictionary *)sentence {
+//    NSMutableDictionary *query = [[NSMutableDictionary alloc] init];
+    
     
 }
 

@@ -27,6 +27,7 @@
 @interface SentenceView : UIView <SelectViewDelegate, PickerViewDelegate>
 
 -(void)setPhrases:(NSArray *)phrases;
+-(NSArray *)getKeyWords;
 
 @property id<SentenceViewDelegate> delegate;
 

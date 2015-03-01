@@ -9,6 +9,7 @@
 #import "PatientSentenceViewController.h"
 #import "HHUtility.h"
 #import "HHUser.h"
+#import "DoctorReferralViewController.h"
 
 
 @interface PatientSentenceViewController () {
@@ -68,13 +69,13 @@
 -(NSArray *)sentenceView:(id)sentenceView didRequestItemsForIndex:(NSInteger)index {
     switch (index) {
         case 1:
-            return @[@"General", @"Forehead", @"Skull", @"Eye", @"Ear", @"Nose", @"Mouth", @"Throat", @"Neck", @"Chest", @"Upper Back", @"Lower Back", @"Pelvis", @"Butt", @"Bowel", @"Shoulder", @"Upper Arm", @"Lower Arm", @"Elbow", @"Hand", @"Wrist", @"Finger", @"Upper Leg", @"Lower Leg", @"Knee", @"Ankle", @"Foot", @"Toe"];
+            return @[kAnatomyGeneral, kAnatomyForehead, kAnatomySkull, kAnatomyEye, kAnatomyEar, kAnatomyNose, kAnatomyMouth, kAnatomyThroat, kAnatomyNeck, kAnatomyChest, kAnatomyUpperBack, kAnatomyLowerBack, kAnatomyPelvis, kAnatomyButt, kAnatomyBowel, kAnatomyShoulder, kAnatomyUpperArm, kAnatomyLowerArm, kAnatomyElbow, kAnatomyHand, kAnatomyWrist, kAnatomyFinger, kAnatomyUpperLeg, kAnatomyLowerLeg, kAnatomyKnee, kAnatomyAnkle, kAnatomyFoot, kAnatomyToe];
             break;
         case 3:
-            return @[@"Couple Of Minutes", @"One Hour", @"Multiple Hours", @"One Day", @"Multiple Days", @"One Week", @"Multiple Weeks", @"Months", @"One Year", @"Multiple Years"];
+            return @[kDurationCoupleOfMinutes, kDurationOneHour, kDurationMultipleHours, kDurationOneDay, kDurationMultipleDays, kDurationOneWeek, kDurationMultipleWeeks, kDurationMonths, kDurationOneYear, kDurationMultipleYears];
             break;
         case 5:
-            return @[@"Mild", @"Minor", @"Medium", @"Major", @"Extreme"];
+            return @[kSeverityMild, kSeverityMinor, kSeverityMedium, kSeverityMajor, kSeverityExtreme];
         default:
             return nil;
             break;
@@ -86,7 +87,7 @@
 }
 
 -(BOOL)sentenceViewCanHaveAddSymptoms:(id)sentenceView {
-    return YES;
+    return NO;
 }
 
 -(NSString *)titleForSubmitButtonForSentenceView:(id)sentenceView {
@@ -102,7 +103,7 @@
 
 -(NSArray *)sentenceView:(id)sentenceView didRequestSecondItemsForIndex:(NSInteger)index {
     if(index == 1) {
-        return @[@"Fever", @"Sweats", @"Chills", @"Dizziness", @"Vision Loss", @"Nausea", @"Burn", @"Bleeding", @"Spasms", @"Numbness", @"Rash/Itch", @"Swelling", @"Dislocation", @"Break", @"Pain", @"Other"];
+        return @[kMiscFever, kMiscSweats, kMiscChills, kMiscDizziness, kMiscVisionLoss, kMiscNausea, kSymptomBurn, kSymptomBleeding, kSymptomSpasms, kSymptomNumbness, kSymptomRashItch, kSymptomSwelling, kSymptomDislocation, kSymptomBreak, kSymptomPain, kSymptomOther];
     }
     return nil;
 }
@@ -118,23 +119,26 @@
 }
 
 -(void)submitButtonPressedWithData:(NSDictionary *)sentence {
-//    [_user get:^(NSError *err, NSArray *json) {
-//        NSLog(@"%@", json);
-//    }];
-    
+    NSArray *keywords = [self.sentenceView getKeyWords];
+    NSString *code = [HHUtility getCodeForAnatomy:keywords[0] symptom:keywords[1] duration:keywords[2] severity:keywords[3]];
     NSMutableDictionary *dict = [[NSMutableDictionary alloc] init];
-    dict[@"imo"] = [NSDictionary dictionaryWithObject:@"11111" forKey:@"code"];
+    dict[@"imo"] = [NSDictionary dictionaryWithObject:code forKey:@"code"];
     [_user put:dict completionHandler:^(NSError *err, NSDictionary *jsonDict){
         if(err) {
-            NSLog(@"UGH");
+            [[[UIAlertView alloc] initWithTitle:@"Error" message:@"Something Went Wrong" delegate:nil cancelButtonTitle:@"Dismiss" otherButtonTitles:nil] show];
         }
         else {
-            NSLog(@"%@", jsonDict);
+            _user.doctorRecommendation = jsonDict[@"doctorType"];
+            NSLog(@"%@", _user.doctorRecommendation);
+            dispatch_async(dispatch_get_main_queue(), ^{[self performSegueWithIdentifier:@"toDoctorReferral" sender:self];});
         }
     }];
 }
 
+-(void)segueToReferral {
+    [self performSegueWithIdentifier:@"toDoctorReferral" sender:self];
+}
+
 -(void)submitRequestFinishedWithSuccess:(BOOL)success {
-    
 }
 @end
