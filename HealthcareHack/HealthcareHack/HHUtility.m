@@ -44,6 +44,29 @@
     return view;
 }
 
++ (NSInteger)getMetersFromString:(NSString *)distance {
+    if([distance isEqualToString:kDistance5Miles]) {
+        return 8045;
+    }
+    if([distance isEqualToString:kDistance10Miles]) {
+        return 16090;
+    }
+    
+    if([distance isEqualToString:kDistance25Miles]) {
+        return 20000; //demo only, max range of API
+    }
+    
+    if([distance isEqualToString:kDistance50Miles]) {
+        return 20000; //demo only, max range of API
+    }
+    
+    if([distance isEqualToString:kDistance100Miles]) {
+        return 20000; //demo only, max range of API
+    }
+    
+    return 0;
+}
+
 + (NSString *)getCodeForAnatomy:(NSString *)anatomy symptom:(NSString *)symptom duration:(NSString *)duration severity:(NSString *)severity {
     NSMutableString *code = [[NSMutableString alloc] init];
     
@@ -256,5 +279,17 @@ NSString *const kDistance50Miles = @"50 Miles";
 NSString *const kDistance100Miles = @"100 Miles";
 
 NSString *const kLocationMe = @"Me";
+
+
+NSString *const kFactualAddress = @"address";
+NSString *const kFactualCity = @"city";
+NSString *const kFactualCountry = @"country";
+NSString *const kFactualDistance = @"distance";
+NSString *const kFactualEmail = @"email";
+NSString *const kFactualName = @"name";
+NSString *const kFactualState = @"state";
+NSString *const kFactualTelephone =@"telephone";
+NSString *const kFactualWebsite = @"website";
+NSString *const kFactualZipcode = @"zipcode";
 
 @end

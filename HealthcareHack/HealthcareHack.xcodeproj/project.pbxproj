@@ -39,6 +39,10 @@
 		2E102AA11AA1E23800A3EE79 /* SentenceView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E102AA01AA1E23800A3EE79 /* SentenceView.m */; };
 		2E102AA41AA246F500A3EE79 /* SelectView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E102AA31AA246F500A3EE79 /* SelectView.m */; };
 		2E102AA81AA26F5000A3EE79 /* PickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E102AA71AA26F5000A3EE79 /* PickerView.m */; };
+		2E5164741AA2F79600533755 /* Doctor.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E5164731AA2F79600533755 /* Doctor.m */; };
+		2E5164771AA2FB2800533755 /* DoctorManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E5164761AA2FB2800533755 /* DoctorManager.m */; };
+		2E51647A1AA3046400533755 /* DoctorTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E5164791AA3046400533755 /* DoctorTableViewCell.m */; };
+		2E51647D1AA30DE600533755 /* DoctorAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E51647C1AA30DE600533755 /* DoctorAnnotation.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -104,6 +108,14 @@
 		2E102AA31AA246F500A3EE79 /* SelectView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SelectView.m; sourceTree = "<group>"; };
 		2E102AA61AA26F5000A3EE79 /* PickerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PickerView.h; sourceTree = "<group>"; };
 		2E102AA71AA26F5000A3EE79 /* PickerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PickerView.m; sourceTree = "<group>"; };
+		2E5164721AA2F79600533755 /* Doctor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Doctor.h; sourceTree = "<group>"; };
+		2E5164731AA2F79600533755 /* Doctor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Doctor.m; sourceTree = "<group>"; };
+		2E5164751AA2FB2800533755 /* DoctorManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DoctorManager.h; sourceTree = "<group>"; };
+		2E5164761AA2FB2800533755 /* DoctorManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DoctorManager.m; sourceTree = "<group>"; };
+		2E5164781AA3046400533755 /* DoctorTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DoctorTableViewCell.h; sourceTree = "<group>"; };
+		2E5164791AA3046400533755 /* DoctorTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DoctorTableViewCell.m; sourceTree = "<group>"; };
+		2E51647B1AA30DE600533755 /* DoctorAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DoctorAnnotation.h; sourceTree = "<group>"; };
+		2E51647C1AA30DE600533755 /* DoctorAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DoctorAnnotation.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -235,6 +247,10 @@
 		2E102A9B1AA1AC7C00A3EE79 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				2E5164721AA2F79600533755 /* Doctor.h */,
+				2E5164731AA2F79600533755 /* Doctor.m */,
+				2E5164751AA2FB2800533755 /* DoctorManager.h */,
+				2E5164761AA2FB2800533755 /* DoctorManager.m */,
 				2E102A981AA1AC7100A3EE79 /* HHUser.h */,
 				2E102A991AA1AC7100A3EE79 /* HHUser.m */,
 				2E102A751AA1940A00A3EE79 /* HHUtility.h */,
@@ -263,6 +279,10 @@
 		2E102AA51AA246F900A3EE79 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				2E51647B1AA30DE600533755 /* DoctorAnnotation.h */,
+				2E51647C1AA30DE600533755 /* DoctorAnnotation.m */,
+				2E5164781AA3046400533755 /* DoctorTableViewCell.h */,
+				2E5164791AA3046400533755 /* DoctorTableViewCell.m */,
 				2E102AA61AA26F5000A3EE79 /* PickerView.h */,
 				2E102AA71AA26F5000A3EE79 /* PickerView.m */,
 				2E102A9F1AA1E23800A3EE79 /* SentenceView.h */,
@@ -392,20 +412,24 @@
 			files = (
 				2E102A7A1AA194EC00A3EE79 /* TabBarViewController.m in Sources */,
 				2E102AA81AA26F5000A3EE79 /* PickerView.m in Sources */,
+				2E5164741AA2F79600533755 /* Doctor.m in Sources */,
 				2E102A771AA1940A00A3EE79 /* HHUtility.m in Sources */,
 				2E102AA41AA246F500A3EE79 /* SelectView.m in Sources */,
 				2E102A901AA1A95000A3EE79 /* ProblemNavigationViewController.m in Sources */,
 				2E102A3D1AA18EC800A3EE79 /* AppDelegate.m in Sources */,
 				2E102A3A1AA18EC800A3EE79 /* main.m in Sources */,
 				2E102A711AA191BF00A3EE79 /* DoctorReferralViewController.m in Sources */,
+				2E5164771AA2FB2800533755 /* DoctorManager.m in Sources */,
 				2E102A9A1AA1AC7100A3EE79 /* HHUser.m in Sources */,
 				2E102A931AA1A95C00A3EE79 /* DoctorNavigationViewController.m in Sources */,
 				2E102A741AA191D100A3EE79 /* DoctorListViewController.m in Sources */,
 				2E102A401AA18EC800A3EE79 /* HealthcareHack.xcdatamodeld in Sources */,
 				2E102A621AA1905700A3EE79 /* PatientSentenceViewController.m in Sources */,
 				2E102A681AA1906D00A3EE79 /* ProfileViewController.m in Sources */,
+				2E51647D1AA30DE600533755 /* DoctorAnnotation.m in Sources */,
 				2E102AA11AA1E23800A3EE79 /* SentenceView.m in Sources */,
 				2E102A961AA1A96900A3EE79 /* ProfileNavigationViewController.m in Sources */,
+				2E51647A1AA3046400533755 /* DoctorTableViewCell.m in Sources */,
 				2E102A651AA1906300A3EE79 /* DoctorSentenceViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -607,6 +631,7 @@
 				2E102A5C1AA18EC800A3EE79 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		2E102A5D1AA18EC800A3EE79 /* Build configuration list for PBXNativeTarget "HealthcareHackTests" */ = {
 			isa = XCConfigurationList;
@@ -615,6 +640,7 @@
 				2E102A5F1AA18EC800A3EE79 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 

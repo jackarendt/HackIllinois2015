@@ -82,6 +82,9 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <connections>
+                        <segue destination="8Lg-1h-V5N" kind="show" identifier="toDoctors" id="yo6-LU-aq8"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Rd7-HB-HHn" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -103,7 +106,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JFs-ZS-wed" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2252" y="682"/>
+            <point key="canvasLocation" x="3040" y="682"/>
         </scene>
         <!--Tab Bar View Controller-->
         <scene sceneID="P1U-W3-O1W">
@@ -188,4 +191,7 @@
         <image name="Medical" width="25" height="25"/>
         <image name="Patient" width="25" height="25"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="yo6-LU-aq8"/>
+    </inferredMetricsTieBreakers>
 </document>

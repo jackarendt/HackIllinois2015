@@ -195,20 +195,13 @@
 }
 
 -(void)put:(NSDictionary *)payloadDictionary completionHandler:(void (^)(NSError *, NSDictionary *))completionHandler{
+    
     NSError *error;
-//    NSString *jsonString = @"hello";
-//    NSData *newData = [jsonString dataUsingEncoding:NSUTF8StringEncoding];
-//    NSLog(@"%@", jsonString);
     NSData *data = [NSJSONSerialization dataWithJSONObject:payloadDictionary options:NSJSONWritingPrettyPrinted error:&error];
-    NSLog(@"%@", [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding]);
     if(error) {
         completionHandler(error, nil);
         return;
     }
-    
-//    NSLog(@"%@", [[NSString alloc] initWithData:newData encoding:NSUTF8StringEncoding]);
-    
-    //NSDictionary *arr = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:nil];
 
     
     NSURLSession *session = [NSURLSession sharedSession];

@@ -22,6 +22,8 @@
 
 + (NSString *)getCodeForAnatomy:(NSString *)anatomy symptom:(NSString *)symptom duration:(NSString *)duration severity:(NSString *)severity;
 
++ (NSInteger)getMetersFromString:(NSString *)distance;
+
 + (NSDictionary *)getAnatomyDictionary;
 + (NSDictionary *)getMiscDictionary;
 + (NSDictionary *) getDurationDictionary;
@@ -127,5 +129,19 @@ extern NSString *const kDistance50Miles;
 extern NSString *const kDistance100Miles;
 
 extern NSString *const kLocationMe;
+
+extern NSString *const kFactualAddress;
+extern NSString *const kFactualCity;
+extern NSString *const kFactualCountry;
+extern NSString *const kFactualDistance;
+extern NSString *const kFactualEmail;
+extern NSString *const kFactualName;
+extern NSString *const kFactualState;
+extern NSString *const kFactualTelephone;
+extern NSString *const kFactualWebsite;
+extern NSString *const kFactualZipcode;
+
+
+
 
 @end

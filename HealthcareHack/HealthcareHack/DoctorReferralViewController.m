@@ -7,13 +7,17 @@
 //
 
 #import "DoctorReferralViewController.h"
+#import "DoctorListViewController.h"
 #import "HHUtility.h"
 #import "HHUser.h"
+#import "DoctorManager.h"
 
 @interface DoctorReferralViewController ()  {
     CGFloat height;
     CGFloat width;
     HHUser *_user;
+    DoctorManager *manager;
+    
 }
 @property (nonatomic, strong) UILabel *recommend;
 @property (nonatomic, strong) UILabel *doctor;
@@ -31,6 +35,7 @@
     
     [HHUser sharedUser:^(NSString *err, BOOL success, HHUser *user){
         _user = user;
+        [_user startUpdatingUserLocation];
         [self updateDoctorLabel];
         
     }];
@@ -107,17 +112,40 @@
 }
 
 -(void)goToMap {
-    
+    NSMutableDictionary *query = [[NSMutableDictionary alloc] init];
+    CLLocation *_loc = _user.location;
+    NSString *recommendation = _user.doctorRecommendation;
+    if([recommendation isEqualToString:kDoctorSelfCare]) {
+        recommendation = @"Pharmacy";
+    }
+    query[@"factual"] = @{
+                          @"latitude"    : [NSString stringWithFormat:@"%f", _loc.coordinate.latitude],
+                          @"longitude"   : [NSString stringWithFormat:@"%f", _loc.coordinate.longitude],
+                          @"doctor"      : recommendation,
+                          @"radius"      : [NSString stringWithFormat:@"%li", [HHUtility getMetersFromString:kDistance25Miles]]
+                          };
+
+    [_user put:query completionHandler:^(NSError *err, NSDictionary *response) {
+        if(err) {
+            NSLog(@"UGH");
+        }
+        else {
+            manager = [[DoctorManager alloc] initWithJSONFile:response];
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [self performSegueWithIdentifier:@"toDoctors" sender:self];
+            });
+        }
+    }];
 }
 
-/*
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+    DoctorListViewController *vc = [segue destinationViewController];
+    vc.user = _user;
+    vc.manager = manager;
 }
-*/
+
 
 @end

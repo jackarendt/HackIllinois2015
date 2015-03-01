@@ -9,11 +9,13 @@
 #import "DoctorSentenceViewController.h"
 #import "HHUtility.h"
 #import "HHUser.h"
+#import "DoctorManager.h"
 
 @interface DoctorSentenceViewController () {
     CGFloat height;
     CGFloat width;
     HHUser *_user;
+    DoctorManager *manager;
     
 }
 @property (nonatomic, strong) UILabel *sentenceLabel;
@@ -44,7 +46,7 @@
     
     self.sentenceView = [[SentenceView alloc] initWithFrame:CGRectMake(0, 120, width, height - 120)];
     self.sentenceView.delegate = self;
-    [self.sentenceView setPhrases:@[@"I    want    a", @"QUERY", @"Within", @"QUERY", @"Of", @"QUERY"]];
+    [self.sentenceView setPhrases:@[@"I    want    a(n)", @"QUERY", @"Within", @"QUERY", @"Of", @"QUERY"]];
     [self.view addSubview:self.sentenceView];
     // Do any additional setup after loading the view.
 }
@@ -108,8 +110,30 @@
 }
 
 -(void)submitButtonPressedWithData:(NSDictionary *)sentence {
-//    NSMutableDictionary *query = [[NSMutableDictionary alloc] init];
-    
+    NSArray *arr = [self.sentenceView getKeyWords];
+    if(arr.count != 3) {
+        return;
+    }
+    NSInteger dist = [HHUtility getMetersFromString:arr[1]];
+    NSMutableDictionary *query = [[NSMutableDictionary alloc] init];
+    CLLocation *_loc = _user.location;
+    query[@"factual"] = @{
+                         @"latitude"    : [NSString stringWithFormat:@"%f", _loc.coordinate.latitude],
+                         @"longitude"   : [NSString stringWithFormat:@"%f", _loc.coordinate.longitude],
+                         @"doctor"      : arr[0],
+                         @"radius"      : [NSString stringWithFormat:@"%li", (long)dist]
+                         };
+    [_user put:query completionHandler:^(NSError *err, NSDictionary *response){
+        if(err) {
+            NSLog(@"err in getting factual data");
+        }
+        else {
+            manager = [[DoctorManager alloc] initWithJSONFile:response];
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [self performSegueWithIdentifier:@"toDoctors" sender:self];
+            });
+        }
+    }];
     
 }
 
@@ -118,14 +142,13 @@
 }
 
 
-/*
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+    DoctorListViewController *vc = [segue destinationViewController];
+    vc.manager = manager;
+    vc.user = _user;
 }
-*/
 
 @end

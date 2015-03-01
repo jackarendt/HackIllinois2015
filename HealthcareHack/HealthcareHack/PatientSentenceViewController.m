@@ -69,7 +69,7 @@
 -(NSArray *)sentenceView:(id)sentenceView didRequestItemsForIndex:(NSInteger)index {
     switch (index) {
         case 1:
-            return @[kAnatomyGeneral, kAnatomyForehead, kAnatomySkull, kAnatomyEye, kAnatomyEar, kAnatomyNose, kAnatomyMouth, kAnatomyThroat, kAnatomyNeck, kAnatomyChest, kAnatomyUpperBack, kAnatomyLowerBack, kAnatomyPelvis, kAnatomyButt, kAnatomyBowel, kAnatomyShoulder, kAnatomyUpperArm, kAnatomyLowerArm, kAnatomyElbow, kAnatomyHand, kAnatomyWrist, kAnatomyFinger, kAnatomyUpperLeg, kAnatomyLowerLeg, kAnatomyKnee, kAnatomyAnkle, kAnatomyFoot, kAnatomyToe];
+            return @[kAnatomyGeneral, kAnatomyForehead, kAnatomySkull, kAnatomyEye, kAnatomyEar, kAnatomyNose, kAnatomyMouth, kAnatomyThroat, kAnatomyNeck, kAnatomyChest, kAnatomyUpperBack, kAnatomyLowerBack, kAnatomyPelvis, kAnatomyGenitals, kAnatomyButt, kAnatomyBowel, kAnatomyShoulder, kAnatomyUpperArm, kAnatomyLowerArm, kAnatomyElbow, kAnatomyHand, kAnatomyWrist, kAnatomyFinger, kAnatomyUpperLeg, kAnatomyLowerLeg, kAnatomyKnee, kAnatomyAnkle, kAnatomyFoot, kAnatomyToe];
             break;
         case 3:
             return @[kDurationCoupleOfMinutes, kDurationOneHour, kDurationMultipleHours, kDurationOneDay, kDurationMultipleDays, kDurationOneWeek, kDurationMultipleWeeks, kDurationMonths, kDurationOneYear, kDurationMultipleYears];
@@ -120,6 +120,9 @@
 
 -(void)submitButtonPressedWithData:(NSDictionary *)sentence {
     NSArray *keywords = [self.sentenceView getKeyWords];
+    if(keywords.count != 4) {
+        return;
+    }
     NSString *code = [HHUtility getCodeForAnatomy:keywords[0] symptom:keywords[1] duration:keywords[2] severity:keywords[3]];
     NSMutableDictionary *dict = [[NSMutableDictionary alloc] init];
     dict[@"imo"] = [NSDictionary dictionaryWithObject:code forKey:@"code"];
@@ -129,8 +132,9 @@
         }
         else {
             _user.doctorRecommendation = jsonDict[@"doctorType"];
-            NSLog(@"%@", _user.doctorRecommendation);
-            dispatch_async(dispatch_get_main_queue(), ^{[self performSegueWithIdentifier:@"toDoctorReferral" sender:self];});
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [self performSegueWithIdentifier:@"toDoctorReferral" sender:self];
+            });
         }
     }];
 }

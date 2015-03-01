@@ -7,7 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <MapKit/MapKit.h>
+#import "DoctorManager.h"
+#import "HHUtility.h"
+#import "HHUser.h"
 
-@interface DoctorListViewController : UIViewController
+@interface DoctorListViewController : UIViewController <MKMapViewDelegate, UITableViewDataSource, UITableViewDelegate>
+
+@property (nonatomic, strong) DoctorManager *manager;
+@property (nonatomic, strong) HHUser *user;
 
 @end
